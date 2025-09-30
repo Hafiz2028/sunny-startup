@@ -2,32 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* INI BAGIAN YANG DIPERBAIKI */
+    --primary: 169 58% 45%; /* #30B498 - Kembali ke Hijau Toska */
+    --primary-foreground: 0 0% 100%; /* Kembali ke Putih */
+
+    /* [STRATEGIS] Warna Spotlight (Kuning Telur) */
+    /* Variabel ini kita buat khusus untuk CTA paling penting */
+    --spotlight: 41 90% 48%; /* #F3AF04 */
+    --spotlight-foreground: 222.2 47.4% 11.2%; /* Teks gelap agar terbaca */
+
+    --secondary: 175 44% 93%; /* #E3F5F4 */
+    --secondary-foreground: 168 96% 30%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 170 50% 80%;
+    --accent-foreground: 168 96% 30%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 168 96% 36%; /* #04B18A */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Tema Gelap juga disesuaikan */
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 169 58% 45%; /* Hijau Toska */
+    --primary-foreground: 0 0% 100%; /* Putih */
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 168 96% 36%;
+    /* Warna spotlight tetap kuning cerah di dark mode agar tetap menonjol */
+    --spotlight: 41 90% 48%;
+    --spotlight-foreground: 222.2 47.4% 11.2%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
