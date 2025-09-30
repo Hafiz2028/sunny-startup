@@ -64,7 +64,7 @@ export function Testimonials() {
                         <AvatarFallback>{testimonial.initials}</AvatarFallback>
                       </Avatar>
                       <p className="text-muted-foreground italic mb-4">
-                        "{testimonial.quote}"
+                        &quot;{testimonial.quote}&quot;
                       </p>
                       <div className="mt-auto">
                         <h4 className="font-semibold text-foreground">
