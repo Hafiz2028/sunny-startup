@@ -25,7 +25,6 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Skema validasi untuk form - Diperbaiki
 const formSchema = z.object({
   serviceType: z.string().min(1, { message: "Silakan pilih jenis layanan." }),
   businessScale: z.string().min(1, { message: "Silakan pilih skala bisnis." }),
@@ -45,7 +44,6 @@ export function ServiceCalculator() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    // Logika kalkulasi sederhana (bisa diganti dengan logika sebenarnya)
     let baseCost = 0;
     if (values.serviceType === "validation") baseCost = 500000;
     if (values.serviceType === "planning") baseCost = 1500000;
@@ -57,7 +55,6 @@ export function ServiceCalculator() {
     if (values.businessScale === "medium") scaleMultiplier = 2.5;
 
     const revenueBonus = values.monthlyRevenue * 0.01;
-
     setEstimatedCost(baseCost * scaleMultiplier + revenueBonus);
   }
 
@@ -65,26 +62,27 @@ export function ServiceCalculator() {
     <section className="w-full py-20 lg:py-24 bg-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="font-display text-4xl lg:text-5xl font-semibold text-foreground mb-4">
+          <h1 className="font-display text-4xl lg:text-5xl font-bold text-[#1A202C] mb-4">
             Kalkulator Estimasi Layanan
           </h1>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-gray-600">
             Dapatkan perkiraan biaya untuk layanan perencanaan bisnis kami.
             Cukup isi beberapa detail di bawah ini.
           </p>
         </div>
-
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-3">
-            <Card>
-              <CardHeader>
-                <CardTitle>Detail Bisnis Anda</CardTitle>
+            <Card className="bg-white border-gray-200 rounded-2xl shadow-none p-4 sm:p-8">
+              <CardHeader className="p-0 mb-6">
+                <CardTitle className="font-display text-2xl text-[#1A202C]">
+                  Detail Bisnis Anda
+                </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-8"
+                    className="space-y-6"
                   >
                     <FormField
                       control={form.control}
@@ -97,7 +95,7 @@ export function ServiceCalculator() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger>
+                              <SelectTrigger className="h-12">
                                 <SelectValue placeholder="Pilih layanan yang Anda butuhkan" />
                               </SelectTrigger>
                             </FormControl>
@@ -128,7 +126,7 @@ export function ServiceCalculator() {
                             defaultValue={field.value}
                           >
                             <FormControl>
-                              <SelectTrigger>
+                              <SelectTrigger className="h-12">
                                 <SelectValue placeholder="Pilih skala bisnis Anda saat ini" />
                               </SelectTrigger>
                             </FormControl>
@@ -161,16 +159,18 @@ export function ServiceCalculator() {
                               type="number"
                               placeholder="Contoh: 15000000"
                               {...field}
+                              className="h-12"
                             />
                           </FormControl>
-                          <FormDescription>
-                            Masukkan perkiraan pendapatan kotor bulanan Anda.
-                          </FormDescription>
                           <FormMessage />
                         </FormItem>
                       )}
                     />
-                    <Button type="submit" size="lg">
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full h-12 text-base font-semibold"
+                    >
                       Hitung Estimasi
                     </Button>
                   </form>
@@ -179,33 +179,34 @@ export function ServiceCalculator() {
             </Card>
           </div>
           <div className="lg:col-span-2">
-            <Card className="sticky top-24">
-              <CardHeader>
-                <CardTitle>Hasil Estimasi Biaya</CardTitle>
+            <Card className="bg-white border-gray-200 rounded-2xl shadow-none p-6 lg:sticky lg:top-24">
+              <CardHeader className="p-0 mb-4">
+                <CardTitle className="font-display text-xl sm:text-2xl text-[#1A202C]">
+                  Hasil Estimasi Biaya
+                </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-0">
                 {estimatedCost !== null ? (
                   <div>
-                    <p className="text-muted-foreground mb-2">
+                    <p className="text-gray-600 mb-2">
                       Perkiraan biaya layanan:
                     </p>
-                    <p className="text-4xl font-bold text-primary">
+                    <p className="text-3xl sm:text-4xl font-bold text-primary">
                       {new Intl.NumberFormat("id-ID", {
                         style: "currency",
                         currency: "IDR",
                         minimumFractionDigits: 0,
                       }).format(estimatedCost)}
                     </p>
-                    <p className="text-xs text-muted-foreground mt-4">
+                    <p className="text-xs text-gray-500 mt-4">
                       *Ini adalah biaya estimasi. Harga final akan didiskusikan
                       saat sesi konsultasi.
                     </p>
                   </div>
                 ) : (
-                  <div className="text-center py-10">
-                    <p className="text-muted-foreground">
-                      Hasil estimasi akan muncul di sini setelah Anda mengisi
-                      formulir.
+                  <div className="text-center py-8 sm:py-10 border-2 border-dashed rounded-lg">
+                    <p className="text-gray-500">
+                      Hasil akan muncul di sini setelah Anda mengisi formulir.
                     </p>
                   </div>
                 )}

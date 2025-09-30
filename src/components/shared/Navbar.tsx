@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import Link from "next/link"; // Import Link dari Next.js
 
-// Struktur data disederhanakan. Dropdown Layanan tidak lagi diperlukan.
 const navLinks = [
   { href: "/", label: "Beranda" },
   { href: "/services", label: "Layanan" },
@@ -19,18 +19,15 @@ export function Navbar() {
   const [activePath, setActivePath] = useState("/");
 
   useEffect(() => {
-    // Tentukan path aktif di sisi klien untuk memastikan akurasi
     if (typeof window !== "undefined") {
       setActivePath(window.location.pathname);
     }
   }, []);
 
-  // Logika untuk mendeteksi link aktif
   const isLinkActive = (href: string) => {
     if (href === "/") {
       return activePath === href;
     }
-    // Menggunakan startsWith agar '/services' juga aktif saat URL-nya '/services?tab=calculator'
     return activePath.startsWith(href);
   };
 
@@ -39,15 +36,15 @@ export function Navbar() {
       <header className="bg-background/95 backdrop-blur-sm sticky top-0 z-50">
         <div className="border-b border-border/60">
           <nav className="container mx-auto px-6 flex justify-between items-center h-16">
-            <a href="/" className="flex items-center space-x-2 group">
+            <Link href="/" className="flex items-center space-x-2 group">
               <span className="text-2xl font-display font-semibold text-foreground group-hover:text-primary transition-colors">
                 Sunny Startup
               </span>
-            </a>
+            </Link>
 
             <div className="hidden md:flex h-full items-center gap-1">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
                   className={cn(
@@ -58,21 +55,24 @@ export function Navbar() {
                   )}
                 >
                   {link.label}
-                  {/* Garis bawah untuk link aktif */}
                   {isLinkActive(link.href) && (
                     <span className="absolute bottom-[-1px] left-0 w-full h-1 bg-primary"></span>
                   )}
-                  {/* Garis bawah yang tumbuh saat hover (hanya jika tidak aktif) */}
                   {!isLinkActive(link.href) && (
                     <span className="absolute bottom-[-1px] left-1/2 w-0 h-1 bg-primary/80 transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
                   )}
-                </a>
+                </Link>
               ))}
             </div>
 
             <div className="flex items-center gap-2">
-              <Button className="hidden md:block bg-spotlight text-spotlight-foreground hover:bg-spotlight/90">
-                Get Started
+              {/* --- PERBAIKAN: Tombol Desktop diubah menjadi gaya Outline --- */}
+              <Button
+                variant="outline"
+                className="hidden md:block rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                asChild
+              >
+                <Link href="/services?tab=consultation">Get Started</Link>
               </Button>
               <Button
                 variant="ghost"
@@ -88,12 +88,11 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Overlay Menu Mobile */}
       {isMobileMenuOpen && (
         <div className="md:hidden fixed inset-0 bg-background z-40 flex flex-col items-center justify-center">
           <nav className="flex flex-col items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
@@ -103,13 +102,16 @@ export function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
+            {/* --- PERBAIKAN: Tombol Mobile diubah menjadi gaya Solid Primer --- */}
             <Button
               size="lg"
-              className="mt-4 bg-spotlight text-spotlight-foreground hover:bg-spotlight/90"
+              className="mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 py-6 text-base"
+              onClick={() => setIsMobileMenuOpen(false)}
+              asChild
             >
-              Get Started
+              <Link href="/services?tab=consultation">Get Started</Link>
             </Button>
           </nav>
         </div>
