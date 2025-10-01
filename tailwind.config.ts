@@ -3,10 +3,7 @@ import type { Config } from "tailwindcss";
 const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx,js,jsx,mdx}",
   ],
   prefix: "",
   theme: {
@@ -62,7 +59,6 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // === BAGIAN YANG DIPERBAIKI ===
       fontFamily: {
         sans: ["var(--font-poppins)"],
         display: ["var(--font-fredoka)"],
@@ -76,10 +72,20 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "pulse-fast": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: ".6" },
+        },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(-5%)" },
+          "50%": { transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-fast": "pulse-fast 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "bounce-slow": "bounce-slow 2.5s ease-in-out infinite",
       },
     },
   },

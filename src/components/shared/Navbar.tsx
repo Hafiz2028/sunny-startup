@@ -4,8 +4,9 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState, useEffect } from "react";
-import Link from "next/link"; // Import Link dari Next.js
+import { useState } from "react"; // Hapus useEffect dari import
+import Link from "next/link";
+import { usePathname } from "next/navigation"; // --- PERBAIKAN 1: Import usePathname ---
 
 const navLinks = [
   { href: "/", label: "Beranda" },
@@ -16,13 +17,9 @@ const navLinks = [
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activePath, setActivePath] = useState("/");
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setActivePath(window.location.pathname);
-    }
-  }, []);
+  // --- PERBAIKAN 2: Hapus useState dan useEffect, ganti dengan usePathname ---
+  const activePath = usePathname();
 
   const isLinkActive = (href: string) => {
     if (href === "/") {
@@ -66,7 +63,6 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
-              {/* --- PERBAIKAN: Tombol Desktop diubah menjadi gaya Outline --- */}
               <Button
                 variant="outline"
                 className="hidden md:block rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
@@ -104,7 +100,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            {/* --- PERBAIKAN: Tombol Mobile diubah menjadi gaya Solid Primer --- */}
             <Button
               size="lg"
               className="mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-bold px-8 py-6 text-base"

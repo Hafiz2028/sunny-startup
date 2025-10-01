@@ -1,6 +1,7 @@
 import { ArrowRight, PlayCircle } from "lucide-react";
 import { MinimalistCta } from "@/components/ui/MinimalistCta";
 
+
 // Komponen kecil untuk membuat mockup UI yang stylised
 const UiMockup = () => (
   <div className="w-full h-full bg-secondary/50 rounded-2xl p-4 md:p-6 border border-border/10 shadow-inner-lg flex flex-col gap-4">
