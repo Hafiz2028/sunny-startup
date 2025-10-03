@@ -58,7 +58,7 @@ export async function Testimonials({ locale }: { locale: string }) {
                           </p>
                           {showTranslation && (
                             <p className="text-muted-foreground/80 italic text-sm mb-4 border-l-2 border-border pl-4 text-left">
-                              (Translated): "{displayedQuote}"
+                              (Translated): &quot;{displayedQuote}&quot;
                             </p>
                           )}
                           <div className="mt-auto">
