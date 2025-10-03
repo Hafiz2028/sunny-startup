@@ -1,6 +1,9 @@
+// src/sections/about/FeedbackForm.tsx
+
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import {
   Card,
   CardContent,
@@ -13,16 +16,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
 export function FeedbackForm() {
+  const t = useTranslations("FeedbackForm");
   const [email, setEmail] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [question, setQuestion] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Di sini Anda bisa menambahkan logika pengiriman form (misal: ke API)
-    alert(
-      `Terima kasih! Pesan Anda telah kami terima.\nEmail: ${email}\nJudul: ${title}\nPesan: ${question}`
-    );
+    alert(t("alert_success"));
     setEmail("");
     setTitle("");
     setQuestion("");
@@ -34,11 +35,10 @@ export function FeedbackForm() {
         <Card className="bg-white border-none rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 sm:p-10">
           <CardHeader className="text-center p-0 mb-8">
             <CardTitle className="font-display text-3xl lg:text-4xl text-[#1A202C] font-bold">
-              Ada Pertanyaan?
+              {t("title")}
             </CardTitle>
             <CardDescription className="text-lg text-gray-600 mt-2">
-              Kami siap membantu. Kirimkan pertanyaan atau umpan balik Anda
-              melalui form di bawah ini.
+              {t("subtitle")}
             </CardDescription>
           </CardHeader>
           <CardContent className="p-0">
@@ -46,7 +46,7 @@ export function FeedbackForm() {
               <div>
                 <Input
                   type="email"
-                  placeholder="Email Anda"
+                  placeholder={t("placeholder_email")}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
@@ -56,7 +56,7 @@ export function FeedbackForm() {
               <div>
                 <Input
                   type="text"
-                  placeholder="Judul Pertanyaan"
+                  placeholder={t("placeholder_title")}
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
@@ -65,7 +65,7 @@ export function FeedbackForm() {
               </div>
               <div>
                 <Textarea
-                  placeholder="Tuliskan pertanyaan atau umpan balik Anda di sini..."
+                  placeholder={t("placeholder_message")}
                   rows={6}
                   value={question}
                   onChange={(e) => setQuestion(e.target.value)}
@@ -77,7 +77,7 @@ export function FeedbackForm() {
                 type="submit"
                 className="w-full h-12 text-lg rounded-lg font-semibold"
               >
-                Kirim Pesan
+                {t("button_submit")}
               </Button>
             </form>
           </CardContent>

@@ -1,0 +1,300 @@
+{
+  "Metadata": {
+    "title": "Sunny Startup | Plan Your Culinary Business",
+    "description": "Turn your food business idea into a solid plan with our smart calculator."
+  },
+  "NotFound": {
+    "title": "Oops! Page Not Found.",
+    "description": "It seems the page you're looking for has been moved, deleted, or maybe never existed.",
+    "back_button": "Go Back to Previous Page"
+  },
+  "Navbar": {
+    "home": "Home",
+    "services": "Services",
+    "blog": "Blog",
+    "about": "About Us",
+    "getStarted": "Get Started"
+  },
+  "Hero": {
+    "title": "Your Culinary Business Dream Starts Here.",
+    "subtitle": "Turn random ideas into a profitable plan. Our smart business calculator helps you figure everything out, fast and efficiently.",
+    "cta_main": "Calculate Your Business",
+    "cta_secondary": "Learn How",
+    "mockup_details": "Capital Details",
+    "mockup_materials": "Raw Materials",
+    "mockup_profit": "Profit Prediction"
+  },
+  "PromoCarousel": {
+    "title1": "Special Launch Discount!",
+    "description1": "Get 20% off your first business plan analysis. Let's cook up success together!",
+    "cta1": "Claim Offer",
+    "illustrationText1": "Carousel banner.",
+    "title2": "New Feature: BEP Prediction",
+    "description2": "Easily find out when your business will break even with our latest analysis feature.",
+    "cta2": "Learn About BEP Feature",
+    "illustrationText2": "Carousel banner 2.",
+    "title3": "Download the Mobile App!",
+    "description3": "Manage all your business insights anywhere. Now available on iOS and Android.",
+    "cta3": "Download Now",
+    "illustrationText3": "Carousel banner 3."
+  },
+  "ServiceOverview": {
+    "section_title": "How We Help You",
+    "section_subtitle": "We provide comprehensive support to turn your culinary dreams into a delicious reality.",
+    "service1_title": "Business Idea Validation",
+    "service1_desc": "We analyze your concept against market data to see if it has the ingredients for success.",
+    "service2_title": "Financial Planning",
+    "service2_desc": "From raw material costs to pricing strategies, we help you build a solid financial foundation.",
+    "service3_title": "Market Insights",
+    "service3_desc": "Get detailed reports on your target audience, competitors, and growth opportunities.",
+    "learn_more": "Learn More →"
+  },
+  "CalculationGuide": {
+    "section_title": "Calculate the Numbers, Easily.",
+    "section_subtitle": "Our simple calculator helps you estimate startup costs, potential profits, and break-even points. Get a clear financial picture even before you start.",
+    "mockup_desc": "3D interface mockup of the clean and colorful Business Calculator feature.",
+    "button_calculator": "Use Calculator",
+    "button_tutorial": "Watch Tutorial"
+  },
+  "Testimonials": {
+    "section_title": "Loved by Foodpreneurs",
+    "role1": "Founder of Kue Kita",
+    "quote1": "The business calculator made planning so much easier. I could see all my costs and profits clearly, which helped me make smarter decisions.",
+    "role2": "Owner of Sambal Juara",
+    "quote2": "Their insights into the food market were invaluable. I felt confident launching my business with their support.",
+    "role3": "Co-founder of Boba Fest",
+    "quote3": "The financial details were a real game-changer. We found cost savings we never saw before."
+  },
+  "FinalCTA": {
+    "section_title": "Ready to Realize Your Dream Business?",
+    "section_subtitle": "Careful planning is key. Let's take your first step now, for free!",
+    "button_start": "Start Planning Now"
+  },
+  "Footer": {
+    "address": "Khatib Sulaiman Street, Alai Parak Kopi, North Padang, Padang City, West Sumatra",
+    "explore": "Explore",
+    "contact": "Contact Us",
+    "follow": "Follow Us",
+    "copyright": "Sunny Startup. All Rights Reserved.",
+    "service_calculator": "Business Calculator",
+    "service_consultation": "Consultation",
+    "service_learn_space": "Learn Space",
+    "service_collaboration": "Collaboration"
+  },
+  "ServicesPage": {
+    "title": "Our Services",
+    "subtitle": "All the tools you need to plan, run, and grow your culinary business.",
+    "tab_calculator": "Business Calculator",
+    "tab_consultation": "Consultation",
+    "tab_learn_space": "Learn Space",
+    "tab_collaboration": "Collaboration",
+    "no_service": "Service Not Found",
+    "select_service": "Please select one of the services above."
+  },
+  "AppCTA": {
+    "section_title": "Take Your Business Plan Anywhere",
+    "section_subtitle": "Download our mobile app for easy access to the business calculator, tips, and consultations anytime, anywhere.",
+    "button_appstore": "Download on the",
+    "button_googleplay": "GET IT ON"
+  },
+  "ServiceCalculator": {
+    "title": "Service Estimation Calculator",
+    "subtitle": "Get an estimated cost for our business planning services. Just fill in a few details below.",
+    "form_title": "Your Business Details",
+    "form_label_service": "Type of Service",
+    "form_placeholder_service": "Select the service you need",
+    "form_label_scale": "Business Scale",
+    "form_placeholder_scale": "Select your current business scale",
+    "form_label_revenue": "Estimated Monthly Revenue (IDR)",
+    "form_placeholder_revenue": "Example: 15000000",
+    "form_button_submit": "Calculate Estimate",
+    "result_title": "Estimated Cost Result",
+    "result_subtitle": "Estimated service cost:",
+    "result_disclaimer": "*This is an estimated cost. Final pricing will be discussed during the consultation session.",
+    "result_placeholder": "Results will appear here after you fill out the form.",
+    "options_service_validation": "Business Idea Validation",
+    "options_service_planning": "Financial Planning",
+    "options_service_market_insight": "Market Insights",
+    "options_scale_micro": "Micro (< IDR 100M/year)",
+    "options_scale_small": "Small (IDR 100M - 1B/year)",
+    "options_scale_medium": "Medium (IDR 1B - 5B/year)",
+    "validation_serviceType": "Please select a service type.",
+    "validation_businessScale": "Please select a business scale.",
+    "validation_monthlyRevenue": "Revenue must be a positive number."
+  },
+  "ConsultationForm": {
+    "title": "Schedule a Consultation Session",
+    "subtitle": "Ready for a deeper discussion? Fill out the form below and our team will get back to you shortly.",
+    "form_title": "Consultation Form",
+    "label_fullName": "Full Name",
+    "placeholder_fullName": "Example: Budi Santoso",
+    "label_email": "Email",
+    "placeholder_email": "email@anda.com",
+    "label_mode": "Consultation Mode",
+    "mode_online": "Online (via Zoom)",
+    "mode_offline": "Offline (In-Person)",
+    "label_date": "Consultation Date",
+    "placeholder_date": "Select a date",
+    "description_date": "Choose your preferred date for the consultation session.",
+    "label_message": "Brief Message",
+    "placeholder_message": "Tell us a bit about your business idea or what you want to discuss.",
+    "button_submit": "Submit Consultation Schedule",
+    "alert_success": "Your consultation schedule has been sent!",
+    "validation_fullName": "Full name must be at least 3 characters.",
+    "validation_email": "Invalid email format.",
+    "validation_mode": "You need to select a consultation mode.",
+    "validation_date": "Consultation date is required.",
+    "validation_message_min": "Message must be at least 10 characters.",
+    "validation_message_max": "Message cannot exceed 500 characters."
+  },
+  "LearnSpace": {
+    "section_title": "Learn Space",
+    "section_subtitle": "Enrich your business knowledge with modules, articles, and workshop schedules from our experts.",
+    "cta_button": "Start Learning",
+    "type1": "Article",
+    "title1": "5 F&B Marketing Strategies in the Digital Era",
+    "desc1": "Learn how to boost your culinary brand's visibility with an efficient budget.",
+    "type2": "Workshop",
+    "title2": "Workshop: Financial Planning for Startups",
+    "desc2": "An interactive session to help you draft solid and realistic financial projections.",
+    "type3": "PDF Module",
+    "title3": "Comprehensive Competitor Analysis Guide",
+    "desc3": "Download our practical guide to understand the competitive landscape in your industry."
+  },
+  "Collaboration": {
+    "section_title": "Collaboration & Partnerships",
+    "section_subtitle": "We believe the best growth comes from collaboration. Explore opportunities to collaborate with fellow foodpreneurs or become an official partner of Sunny Startup.",
+    "list1": "Partnership Opportunities",
+    "list2": "Events & Joint Workshops",
+    "list3": "Co-Branding Programs",
+    "button": "Become Our Partner",
+    "illustration_text": "3D illustration showing partnership and collaboration among SMEs."
+  },
+  "UserCollaboration": {
+    "section_title": "Foodpreneur Community Forum",
+    "section_subtitle": "Join our exclusive discussion space. Share ideas, ask challenges, and find business partners among fellow Sunny Startup users.",
+    "illustration_text": "3D illustration depicting an active forum or community of users discussing.",
+    "button": "Join the Community"
+  },
+  "Blog": {
+    "title": "Blog Startup Sunny",
+    "subtitle": "Fresh Insights, practical tips, and inspiring stories to help your business journey.",
+    "search_placeholder": "Search articles...",
+    "related_articles_title": "Related Articles",
+    "written_by": "WRITTEN BY",
+    "view_all_articles_by": "View all articles by {authorName}",
+    "articles_by_author": "Articles by {authorName}",
+    "all_category": "All Categories",
+    "posts": {
+      "5-strategi-marketing-fnb": {
+        "author": "Rina A.",
+        "title": "5 F&B Marketing Strategies in the Digital Era",
+        "description": "Boost your culinary brand's visibility with an efficient budget.",
+        "authorBio": "Rina is a digital marketer specializing in the F&B industry. She has helped dozens of MSMEs go digital.",
+        "date": "28 Sep, 2025",
+        "category": "Business Tips",
+        "content": "<h2>1. Leverage Social Media to the Fullest</h2><p>Platforms like Instagram and TikTok are key to reaching Gen Z audiences. Create engaging short video content and use features like Reels and Stories for daily promotions.</p><h2>2. Optimize Local SEO</h2><p>Ensure your business is listed on Google Maps with complete information. Use keywords like 'best coffee in [city name]' in your business description.</p><h2>3. Collaborate with Influencers</h2><p>Find local food bloggers or influencers that align with your brand. A positive review from them can significantly boost customer trust.</p>"
+      },
+      "studi-kasus-sambal-juara": {
+        "author": "Budi S.",
+        "title": "Case Study: How 'Sambal Juara' Penetrated Modern Retail Markets",
+        "description": "From a home kitchen to supermarket shelves, learn the journey of 'Sambal Juara'.",
+        "authorBio": "Budi is a business practitioner focused on developing MSME products to compete in broader markets.",
+        "date": "25 Sep, 2025",
+        "category": "Case Study",
+        "content": "<h2>Background</h2><p>'Sambal Juara' started as a small home-based business. With unique recipes and consistent quality, they managed to attract local customers.</p><h2>Steps to Enter Modern Retail</h2><p>1. Product Packaging: They invested in attractive and hygienic packaging that met retail standards.<br>2. Certifications: Obtained necessary food safety certifications.<br>3. Networking: Attended trade fairs and connected with retail buyers.<br>4. Negotiation: Offered competitive pricing and promotional support to retailers.</p><h2>Results</h2><p>Within six months of entering modern retail, 'Sambal Juara' saw a 150% increase in sales and expanded their market reach significantly.</p>"
+      },
+      "tren-kemasan-ramah-lingkungan": {
+        "author": "Rina A.",
+        "title": "Eco-Friendly Packaging Trends for Coffee Businesses",
+        "description": "Adopt sustainable packaging to attract environmentally conscious customers.",
+        "authorBio": "Rina is a digital marketer specializing in the F&B industry. She has helped dozens of MSMEs go digital.",
+        "date": "19 Sep, 2025",
+        "category": "Business Tips",
+        "content": "<h2>The Importance of Green Packaging</h2><p>More and more consumers, especially Gen Z, are choosing brands based on sustainability values. Using eco-friendly packaging is no longer an option but a necessity to stay relevant.</p><h2>Packaging Examples</h2><p>Some popular options include recycled material coffee cups, paper or bamboo straws, and shopping bags made from biodegradable cassava material.</p>"
+      },
+      "pentingnya-food-costing": {
+        "author": "Sarah L.",
+        "title": "Why Food Costing is Key to Your Restaurant's Profitability",
+        "description": "Understand and manage food costs to ensure your restaurant thrives.",
+        "authorBio": "Sarah is a financial consultant who has helped many restaurants plan their finances.",
+        "date": "22 Sep, 2025",
+        "category": "Financial Education",
+        "content": "<h2>What is Food Costing?</h2><p>Food costing is the process of calculating the total cost of ingredients used to prepare a dish. This includes raw materials, spices, and other consumables.</p><h2>How to Calculate Food Cost Percentage</h2><p>The formula is: (Total Cost of Ingredients / Selling Price) x 100%. Ideally, food cost percentage should be between 25-35% depending on your business model.</p><h2>Benefits of Managing Food Costs</h2><p>By understanding food costs, you can set appropriate menu prices, identify waste, and improve overall profitability.</p>"
+      },
+      "membangun-loyalitas-pelanggan": {
+        "author": "Budi S.",
+        "title": "Case Study: Building Customer Loyalty with a Digital Membership Program",
+        "description": "Turn occasional buyers into loyal customers with a loyalty program.",
+        "authorBio": "Budi is a business practitioner focused on developing MSME products to compete in broader markets.",
+        "date": "15 Sep, 2025",
+        "category": "Case Study",
+        "content": "<h2>Studi Kasus: Kopi Senja</h2><p>'Kopi Senja' berhasil meningkatkan retensi pelanggan sebesar 40% setelah meluncurkan program membership digital. Pelanggan dapat mengumpulkan poin setiap pembelian yang bisa ditukar dengan produk gratis.</p><h2>Kunci Sukses</h2><p>Program ini berhasil karena mudah digunakan (melalui aplikasi sederhana) dan memberikan reward yang benar-benar diinginkan oleh pelanggan mereka.</p>"
+      },
+      "manajemen-inventaris-efektif": {
+        "author": "Sarah L.",
+        "title": "Tips Manajemen Inventaris untuk Menghindari Pemborosan",
+        "description": "Hindari kerugian akibat bahan baku terbuang dengan sistem inventaris.",
+        "authorBio": "Sarah adalah seorang konsultan finansial yang telah membantu banyak restoran dalam merencanakan keuangan mereka.",
+        "date": "12 Sep, 2025",
+        "category": "Financial Education",
+        "content": "<h2>Metode First-In, First-Out (FIFO)</h2><p>Prinsip dasar manajemen inventaris di F&B adalah FIFO. Bahan baku yang pertama kali masuk harus menjadi yang pertama kali keluar. Ini mencegah bahan makanan menjadi kadaluwarsa.</p><h2>Lakukan Stock Opname Rutin</h2><p>Jadwalkan pengecekan stok secara rutin, misalnya mingguan. Ini membantu Anda mengetahui bahan apa yang pergerakannya cepat dan mana yang lambat, sehingga Anda bisa menyesuaikan pembelian di masa depan.</p>"
+      },
+      "riset-pasar-untuk-menu-baru": {
+        "author": "Rina A.",
+        "title": "Cara Melakukan Riset Pasar Sebelum Meluncurkan Menu Baru",
+        "description": "Validasi ide menu baru Anda dengan data untuk memastikan kesuksesan.",
+        "authorBio": "Rina adalah seorang digital marketer dengan spesialisasi di industri F&B. Ia telah membantu puluhan UMKM untuk go digital.",
+        "date": "10 Sep, 2025",
+        "category": "Business Tips",
+        "content": "<h2>Survei Pelanggan</h2><p>Cara termudah adalah dengan bertanya langsung kepada pelanggan setia Anda. Buat survei singkat melalui Google Forms atau media sosial untuk menanyakan preferensi mereka.</p><h2>Uji Coba Terbatas</h2><p>Sebelum meluncurkan secara resmi, tawarkan menu baru sebagai 'menu spesial' selama seminggu. Lihat respons pelanggan dan minta masukan dari mereka.</p>"
+      },
+      "analisis-kompetitor-restoran": {
+        "author": "Budi S.",
+        "title": "Studi Kasus: Analisis Kompetitor untuk Menentukan Harga Jual",
+        "description": "Pelajari bagaimana restoran lokal bersaing dengan brand besar.",
+        "authorBio": "Budi adalah seorang praktisi bisnis yang fokus pada pengembangan produk UMKM agar dapat bersaing di pasar yang lebih luas.",
+        "date": "08 Sep, 2025",
+        "category": "Case Study",
+        "content": "<h2>Memetakan Kompetitor</h2><p>Restoran 'Nasi Juara' memetakan semua kompetitor di radius 1 km. Mereka menganalisis harga, menu andalan, dan promo yang ditawarkan.</p><h2>Menemukan Celah</h2><p>Mereka menemukan bahwa tidak ada kompetitor yang menawarkan paket makan siang hemat untuk karyawan kantor. 'Nasi Juara' kemudian meluncurkan paket seharga Rp 25.000 dan berhasil menguasai pasar tersebut.</p>"
+      },
+      "pajak-umkm-fnb": {
+        "author": "Sarah L.",
+        "title": "Panduan Pajak untuk UMKM F&B yang Wajib Anda Tahu",
+        "description": "Pahami kewajiban perpajakan untuk bisnis kuliner Anda sejak dini.",
+        "authorBio": "Sarah adalah seorang konsultan finansial yang telah membantu banyak restoran dalam merencanakan keuangan mereka.",
+        "date": "05 Sep, 2025",
+        "category": "Financial Education",
+        "content": "<h2>Pajak Final 0.5%</h2><p>Untuk UMKM dengan omzet di bawah Rp 4.8 Miliar per tahun, pemerintah memberikan fasilitas PPh Final dengan tarif 0.5% dari total omzet bulanan. Ini jauh lebih sederhana daripada perhitungan pajak normal.</p><h2>Pentingnya Pencatatan</h2><p>Meskipun tarifnya sederhana, Anda tetap wajib melakukan pencatatan omzet harian dengan rapi. Ini akan menjadi dasar perhitungan pajak Anda dan sangat penting jika ada pemeriksaan di kemudian hari.</p>"
+      }
+    }
+  },
+  "AboutPage": {
+    "founder_title": "Founder & CEO of Sunny Startup",
+    "founder_bio": "Alex is a serial foodpreneur with a great passion for helping culinary MSMEs grow. With a background in technology and finance, he founded Sunny Startup to solve the main problems often faced by new entrepreneurs: solid business planning.",
+    "founder_exp1": "10+ Years in the F&B Industry",
+    "founder_exp2": "Financial Planning Expert",
+    "founder_exp3": "Former Software Engineer",
+    "timeline_2023": "The idea for Sunny Startup was sparked from a discussion in a coffee shop about the difficulties of starting a culinary business.",
+    "timeline_2024": "The core team was formed and development of the 'Business Calculator' beta version began.",
+    "timeline_2025": "Official launch of Sunny Startup to the public with a mission to empower millions of MSMEs in Indonesia.",
+    "hero_title": "Helping Realize <primary>Foodpreneur Dreams</primary>",
+    "hero_subtitle": "We believe every great culinary business idea deserves a bright start. Learn more about the vision, mission, and team behind Sunny Startup.",
+    "vision_mission_title": "Building the Future of Indonesian Culinary",
+    "vision_title": "Our Vision",
+    "vision_desc": "Becoming the #1 business planning platform for foodpreneurs in Southeast Asia, empowering them to build sustainable and profitable ventures.",
+    "mission_title": "Our Mission",
+    "mission_desc": "Providing accessible tools, accurate data, and practical business insights to reduce the risk of failure for aspiring culinary entrepreneurs.",
+    "timeline_section_title": "Our Journey",
+    "timeline_section_subtitle": "From a simple idea to a real platform that empowers."
+  },
+  "FeedbackForm": {
+    "title": "Have Questions?",
+    "subtitle": "We're here to help! Whether you have questions about our services, need assistance with the business calculator, or want to share your feedback, feel free to reach out.",
+    "placeholder_email": "Your Email",
+    "placeholder_title": "Subject",
+    "placeholder_message": "Your question or feedback here...",
+    "button_submit": "Send Message",
+    "alert_success": "Your message has been sent! We'll get back to you soon."
+  }
+}

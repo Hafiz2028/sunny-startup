@@ -1,7 +1,7 @@
-import Link from "next/link";
+import { Link } from "@/navigation"; // ✅ Ganti impor ini
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Post } from "@/lib/data";
+import type { Post } from "@/lib/data";
 
 export function PostHeader({ post }: { post: Post }) {
   return (

@@ -4,23 +4,16 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import { useState } from "react"; // Hapus useEffect dari import
-import Link from "next/link";
-import { usePathname } from "next/navigation"; // --- PERBAIKAN 1: Import usePathname ---
-
-const navLinks = [
-  { href: "/", label: "Beranda" },
-  { href: "/services", label: "Layanan" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "Tentang Kami" },
-];
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/navigation";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { navLinks } from "@/lib/nav-data";
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  // --- PERBAIKAN 2: Hapus useState dan useEffect, ganti dengan usePathname ---
   const activePath = usePathname();
-
+  const t = useTranslations("Navbar");
   const isLinkActive = (href: string) => {
     if (href === "/") {
       return activePath === href;
@@ -42,7 +35,7 @@ export function Navbar() {
             <div className="hidden md:flex h-full items-center gap-1">
               {navLinks.map((link) => (
                 <Link
-                  key={link.label}
+                  key={link.href}
                   href={link.href}
                   className={cn(
                     "relative h-full flex items-center px-4 text-sm font-semibold transition-colors group",
@@ -51,7 +44,7 @@ export function Navbar() {
                       : "text-foreground/60 hover:text-foreground"
                   )}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                   {isLinkActive(link.href) && (
                     <span className="absolute bottom-[-1px] left-0 w-full h-1 bg-primary"></span>
                   )}
@@ -63,12 +56,13 @@ export function Navbar() {
             </div>
 
             <div className="flex items-center gap-2">
+              <LanguageSwitcher />
               <Button
                 variant="outline"
                 className="hidden md:block rounded-full border-2 border-primary text-primary font-bold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 asChild
               >
-                <Link href="/services?tab=consultation">Get Started</Link>
+                <Link href="/services?tab=consultation">{t("getStarted")}</Link>
               </Button>
               <Button
                 variant="ghost"
@@ -97,7 +91,7 @@ export function Navbar() {
                 )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
             <Button
@@ -106,7 +100,7 @@ export function Navbar() {
               onClick={() => setIsMobileMenuOpen(false)}
               asChild
             >
-              <Link href="/services?tab=consultation">Get Started</Link>
+              <Link href="/services?tab=consultation">{t("getStarted")}</Link>
             </Button>
           </nav>
         </div>

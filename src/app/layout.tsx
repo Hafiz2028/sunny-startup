@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
 import { Poppins, Fredoka } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/shared/Navbar";
 import { cn } from "@/lib/utils";
+import "./globals.css";
 
-// Konfigurasi Font
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-poppins",
 });
-
 const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -18,27 +15,27 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "Sunny Startup | Rencanakan Bisnis Kulinermu",
-  description:
-    "Ubah ide bisnis makanan Anda menjadi rencana matang dengan kalkulator bisnis pintar kami. Dari modal hingga profit, semua terhitung presisi.",
+  title: "Sunny Startup",
+  description: "Rencanakan bisnis kulinermu dari ide hingga jadi cuan!",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+  params: { locale },
+}: {
   children: React.ReactNode;
-}>) {
+  params: { locale: string };
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased flex flex-col",
           poppins.variable,
           fredoka.variable
         )}
       >
-        <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

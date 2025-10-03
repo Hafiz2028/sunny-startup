@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-react";
@@ -13,24 +12,39 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { dummyPosts } from "@/lib/data";
+import type { Post } from "@/lib/data";
 import { BlogPostCard } from "./BlogPostCard";
 
 const POSTS_PER_PAGE = 6;
 
-export function BlogList() {
+interface BlogListProps {
+  posts: Post[];
+  pageTitle: string;
+  pageSubtitle: string;
+  searchPlaceholder: string;
+  allCategoryText: string;
+}
+
+export function BlogList({
+  posts,
+  pageTitle,
+  pageSubtitle,
+  searchPlaceholder,
+  allCategoryText,
+}: BlogListProps) {
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [activeCategory, setActiveCategory] = React.useState("Semua");
+  const [activeCategory, setActiveCategory] = React.useState(allCategoryText);
   const [currentPage, setCurrentPage] = React.useState(1);
 
   const categories = [
-    "Semua",
-    ...Array.from(new Set(dummyPosts.map((p) => p.category))),
+    allCategoryText,
+    ...Array.from(new Set(posts.map((p) => p.category))),
   ];
 
-  const filteredPosts = dummyPosts
+  const filteredPosts = posts
     .filter(
-      (post) => activeCategory === "Semua" || post.category === activeCategory
+      (post) =>
+        activeCategory === allCategoryText || post.category === activeCategory
     )
     .filter(
       (post) =>
@@ -49,19 +63,16 @@ export function BlogList() {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-[#1A202C] mb-4">
-            Sunny Startup Blog
+            {pageTitle}
           </h1>
-          <p className="text-lg text-gray-500">
-            Insight segar, tips praktis, dan cerita inspiratif untuk membantu
-            perjalanan bisnismu.
-          </p>
+          <p className="text-lg text-gray-500">{pageSubtitle}</p>
         </div>
 
         <div className="max-w-xl mx-auto mb-8 relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
           <Input
             type="search"
-            placeholder="Cari artikel berdasarkan judul..."
+            placeholder={searchPlaceholder}
             className="pl-12 h-12 rounded-full border-gray-200 focus:ring-primary focus:border-primary"
             value={searchTerm}
             onChange={(e) => {

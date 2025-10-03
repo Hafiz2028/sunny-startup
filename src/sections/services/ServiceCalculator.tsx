@@ -4,12 +4,11 @@ import * as React from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-
+import { useLocale, useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -25,24 +24,27 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const formSchema = z.object({
-  serviceType: z.string().min(1, { message: "Silakan pilih jenis layanan." }),
-  businessScale: z.string().min(1, { message: "Silakan pilih skala bisnis." }),
-  monthlyRevenue: z.coerce.number().min(0, "Pendapatan harus angka positif."),
-});
-
 export function ServiceCalculator() {
+  const t = useTranslations("ServiceCalculator"); // -> 2. Dapatkan fungsi 't'
+  const locale = useLocale(); // -> 3. Dapatkan locale saat ini
+
+  // -> 4. Pindahkan skema Zod ke dalam komponen dan gunakan 't'
+  const formSchema = z.object({
+    serviceType: z.string().min(1, { message: t("validation_serviceType") }),
+    businessScale: z
+      .string()
+      .min(1, { message: t("validation_businessScale") }),
+    monthlyRevenue: z.coerce.number().min(0, t("validation_monthlyRevenue")),
+  });
+
   const [estimatedCost, setEstimatedCost] = React.useState<number | null>(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      serviceType: "",
-      businessScale: "",
-      monthlyRevenue: 0,
-    },
+    defaultValues: { serviceType: "", businessScale: "", monthlyRevenue: 0 },
   });
 
+  // Logika onSubmit tidak berubah
   function onSubmit(values: z.infer<typeof formSchema>) {
     let baseCost = 0;
     if (values.serviceType === "validation") baseCost = 500000;
@@ -58,24 +60,34 @@ export function ServiceCalculator() {
     setEstimatedCost(baseCost * scaleMultiplier + revenueBonus);
   }
 
+  // -> 5. Buat data untuk Select agar JSX lebih bersih
+  const serviceOptions = [
+    { value: "validation", label: t("options_service_validation") },
+    { value: "planning", label: t("options_service_planning") },
+    { value: "market-insight", label: t("options_service_market_insight") },
+  ];
+
+  const scaleOptions = [
+    { value: "micro", label: t("options_scale_micro") },
+    { value: "small", label: t("options_scale_small") },
+    { value: "medium", label: t("options_scale_medium") },
+  ];
+
   return (
-    <section className="w-full py-20 lg:py-24 bg-secondary">
+    <section className="w-full py-20 lg:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h1 className="font-display text-4xl lg:text-5xl font-bold text-[#1A202C] mb-4">
-            Kalkulator Estimasi Layanan
+          <h1 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-4">
+            {t("title")}
           </h1>
-          <p className="text-lg text-gray-600">
-            Dapatkan perkiraan biaya untuk layanan perencanaan bisnis kami.
-            Cukup isi beberapa detail di bawah ini.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("subtitle")}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
           <div className="lg:col-span-3">
-            <Card className="bg-white border-gray-200 rounded-2xl shadow-none p-4 sm:p-8">
+            <Card className="bg-background rounded-2xl shadow-none p-4 sm:p-8">
               <CardHeader className="p-0 mb-6">
-                <CardTitle className="font-display text-2xl text-[#1A202C]">
-                  Detail Bisnis Anda
+                <CardTitle className="font-display text-2xl text-foreground">
+                  {t("form_title")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
@@ -89,26 +101,27 @@ export function ServiceCalculator() {
                       name="serviceType"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Jenis Layanan</FormLabel>
+                          <FormLabel>{t("form_label_service")}</FormLabel>
                           <Select
                             onValueChange={field.onChange}
                             defaultValue={field.value}
                           >
                             <FormControl>
                               <SelectTrigger className="h-12">
-                                <SelectValue placeholder="Pilih layanan yang Anda butuhkan" />
+                                <SelectValue
+                                  placeholder={t("form_placeholder_service")}
+                                />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="validation">
-                                Validasi Ide Bisnis
-                              </SelectItem>
-                              <SelectItem value="planning">
-                                Perencanaan Finansial
-                              </SelectItem>
-                              <SelectItem value="market-insight">
-                                Insight Pasar
-                              </SelectItem>
+                              {serviceOptions.map((option) => (
+                                <SelectItem
+                                  key={option.value}
+                                  value={option.value}
+                                >
+                                  {option.label}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -120,26 +133,27 @@ export function ServiceCalculator() {
                       name="businessScale"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Skala Bisnis</FormLabel>
+                          <FormLabel>{t("form_label_scale")}</FormLabel>
                           <Select
                             onValueChange={field.onChange}
                             defaultValue={field.value}
                           >
                             <FormControl>
                               <SelectTrigger className="h-12">
-                                <SelectValue placeholder="Pilih skala bisnis Anda saat ini" />
+                                <SelectValue
+                                  placeholder={t("form_placeholder_scale")}
+                                />
                               </SelectTrigger>
                             </FormControl>
                             <SelectContent>
-                              <SelectItem value="micro">
-                                Mikro ( &lt; 100jt/tahun )
-                              </SelectItem>
-                              <SelectItem value="small">
-                                Kecil ( 100jt - 1M/tahun )
-                              </SelectItem>
-                              <SelectItem value="medium">
-                                Menengah ( 1M - 5M/tahun )
-                              </SelectItem>
+                              {scaleOptions.map((option) => (
+                                <SelectItem
+                                  key={option.value}
+                                  value={option.value}
+                                >
+                                  {option.label}
+                                </SelectItem>
+                              ))}
                             </SelectContent>
                           </Select>
                           <FormMessage />
@@ -151,13 +165,11 @@ export function ServiceCalculator() {
                       name="monthlyRevenue"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>
-                            Perkiraan Pendapatan Bulanan (Rp)
-                          </FormLabel>
+                          <FormLabel>{t("form_label_revenue")}</FormLabel>
                           <FormControl>
                             <Input
                               type="number"
-                              placeholder="Contoh: 15000000"
+                              placeholder={t("form_placeholder_revenue")}
                               {...field}
                               className="h-12"
                             />
@@ -171,7 +183,7 @@ export function ServiceCalculator() {
                       size="lg"
                       className="w-full h-12 text-base font-semibold"
                     >
-                      Hitung Estimasi
+                      {t("form_button_submit")}
                     </Button>
                   </form>
                 </Form>
@@ -179,34 +191,33 @@ export function ServiceCalculator() {
             </Card>
           </div>
           <div className="lg:col-span-2">
-            <Card className="bg-white border-gray-200 rounded-2xl shadow-none p-6 lg:sticky lg:top-24">
+            <Card className="bg-background rounded-2xl shadow-none p-6 lg:sticky lg:top-24">
               <CardHeader className="p-0 mb-4">
-                <CardTitle className="font-display text-xl sm:text-2xl text-[#1A202C]">
-                  Hasil Estimasi Biaya
+                <CardTitle className="font-display text-xl sm:text-2xl text-foreground">
+                  {t("result_title")}
                 </CardTitle>
               </CardHeader>
               <CardContent className="p-0">
                 {estimatedCost !== null ? (
                   <div>
-                    <p className="text-gray-600 mb-2">
-                      Perkiraan biaya layanan:
+                    <p className="text-muted-foreground mb-2">
+                      {t("result_subtitle")}
                     </p>
                     <p className="text-3xl sm:text-4xl font-bold text-primary">
-                      {new Intl.NumberFormat("id-ID", {
+                      {new Intl.NumberFormat(locale, {
                         style: "currency",
                         currency: "IDR",
                         minimumFractionDigits: 0,
                       }).format(estimatedCost)}
                     </p>
-                    <p className="text-xs text-gray-500 mt-4">
-                      *Ini adalah biaya estimasi. Harga final akan didiskusikan
-                      saat sesi konsultasi.
+                    <p className="text-xs text-muted-foreground mt-4">
+                      {t("result_disclaimer")}
                     </p>
                   </div>
                 ) : (
                   <div className="text-center py-8 sm:py-10 border-2 border-dashed rounded-lg">
-                    <p className="text-gray-500">
-                      Hasil akan muncul di sini setelah Anda mengisi formulir.
+                    <p className="text-muted-foreground">
+                      {t("result_placeholder")}
                     </p>
                   </div>
                 )}

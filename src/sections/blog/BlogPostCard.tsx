@@ -8,9 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Post } from "@/lib/data"; // Import tipe data Post
+import { Post } from "@/lib/data";
 
-// Komponen ini hanya menerima satu 'post' sebagai prop dan menampilkannya
 export function BlogPostCard({ post }: { post: Post }) {
   return (
     <Card

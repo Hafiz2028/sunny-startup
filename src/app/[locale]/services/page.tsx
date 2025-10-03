@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Calculator, Users, BookOpen, Handshake } from "lucide-react";
@@ -9,16 +10,40 @@ import { ConsultationForm } from "@/sections/services/ConsultationForm";
 import { LearnSpace } from "@/sections/services/LearnSpace";
 import { Collaboration } from "@/sections/services/Collaboration";
 import { UserCollaboration } from "@/sections/services/UserCollaboration";
-import { Footer } from "@/components/shared/Footer";
-
-const serviceTabs = [
-  { id: "calculator", label: "Kalkulator Bisnis", icon: Calculator, component: <ServiceCalculator />, },
-  { id: "consultation", label: "Konsultasi", icon: Users, component: <ConsultationForm />, },
-  { id: "learn-space", label: "Learn Space", icon: BookOpen, component: <LearnSpace />, },
-  { id: "collaboration", label: "Kolaborasi", icon: Handshake, component: ( <div className="space-y-16 md:space-y-24"> <Collaboration /> <UserCollaboration /> </div> ), },
-];
 
 export default function ServicesPage() {
+  const t = useTranslations("ServicesPage");
+  const serviceTabs = [
+    {
+      id: "calculator",
+      label: t("tab_calculator"),
+      icon: Calculator,
+      component: <ServiceCalculator />,
+    },
+    {
+      id: "consultation",
+      label: t("tab_consultation"),
+      icon: Users,
+      component: <ConsultationForm />,
+    },
+    {
+      id: "learn-space",
+      label: t("tab_learn_space"),
+      icon: BookOpen,
+      component: <LearnSpace />,
+    },
+    {
+      id: "collaboration",
+      label: t("tab_collaboration"),
+      icon: Handshake,
+      component: (
+        <div className="space-y-16 md:space-y-24">
+          {" "}
+          <Collaboration /> <UserCollaboration />{" "}
+        </div>
+      ),
+    },
+  ];
   const [currentTab, setCurrentTab] = useState("calculator");
 
   useEffect(() => {
@@ -33,7 +58,11 @@ export default function ServicesPage() {
     setCurrentTab(tabId);
     const params = new URLSearchParams(window.location.search);
     params.set("tab", tabId);
-    window.history.pushState(null, "", `${window.location.pathname}?${params.toString()}`);
+    window.history.pushState(
+      null,
+      "",
+      `${window.location.pathname}?${params.toString()}`
+    );
   };
 
   const activeService = serviceTabs.find((tab) => tab.id === currentTab);
@@ -42,9 +71,11 @@ export default function ServicesPage() {
     <>
       <div className="container mx-auto px-6 py-12 md:py-16">
         <div className="text-center mb-12">
-          <h1 className="font-display text-4xl md:text-5xl font-bold">Layanan Kami</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold">
+            {t("title")}
+          </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Semua alat yang Anda butuhkan untuk merencanakan, menjalankan, dan mengembangkan bisnis kuliner Anda.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -74,8 +105,10 @@ export default function ServicesPage() {
             <div>{activeService.component}</div>
           ) : (
             <div className="text-center py-16">
-              <h2 className="text-2xl font-semibold">Layanan tidak ditemukan</h2>
-              <p className="text-muted-foreground mt-2">Silakan pilih salah satu layanan di atas.</p>
+              <h2 className="text-2xl font-semibold">{t("no_service")}</h2>
+              <p className="text-muted-foreground mt-2">
+                {t("select_service")}
+              </p>
             </div>
           )}
         </div>
@@ -83,7 +116,6 @@ export default function ServicesPage() {
       <div className="mt-16 md:mt-24">
         <AppCTA />
       </div>
-      <Footer />
     </>
   );
 }

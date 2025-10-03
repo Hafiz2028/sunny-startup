@@ -4,7 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { format } from "date-fns";
+import { id, enUS } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -12,11 +14,11 @@ import { Calendar } from "@/components/ui/calendar";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
+  FormDescription,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
@@ -26,59 +28,49 @@ import {
 } from "@/components/ui/popover";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
-// PERBAIKAN: Impor komponen Card
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// Skema validasi untuk formulir konsultasi
-const consultationFormSchema = z.object({
-  fullName: z.string().min(3, { message: "Nama lengkap minimal 3 karakter." }),
-  email: z.string().email({ message: "Format email tidak valid." }),
-  consultationMode: z.enum(["online", "offline"], {
-    required_error: "Anda perlu memilih mode konsultasi.",
-  }),
-  preferredDate: z.date({
-    required_error: "Tanggal konsultasi wajib diisi.",
-  }),
-  message: z
-    .string()
-    .min(10, { message: "Pesan minimal 10 karakter." })
-    .max(500, { message: "Pesan tidak boleh lebih dari 500 karakter." }),
-});
-
 export function ConsultationForm() {
+  const t = useTranslations("ConsultationForm");
+  const locale = useLocale();
+
+  const consultationFormSchema = z.object({
+    fullName: z.string().min(3, { message: t("validation_fullName") }),
+    email: z.string().email({ message: t("validation_email") }),
+    consultationMode: z.enum(["online", "offline"], {
+      required_error: t("validation_mode"),
+    }),
+    preferredDate: z.date({ required_error: t("validation_date") }),
+    message: z
+      .string()
+      .min(10, { message: t("validation_message_min") })
+      .max(500, { message: t("validation_message_max") }),
+  });
+
   const form = useForm<z.infer<typeof consultationFormSchema>>({
     resolver: zodResolver(consultationFormSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-    },
+    defaultValues: { fullName: "", email: "" },
   });
 
   function onSubmit(values: z.infer<typeof consultationFormSchema>) {
     console.log(values);
-    // Ganti alert() dengan UI notifikasi yang lebih modern jika memungkinkan
-    alert("Jadwal konsultasi Anda telah terkirim!");
+    alert(t("alert_success"));
     form.reset();
   }
 
   return (
-    // PERBAIKAN: Ganti background menjadi bg-secondary agar konsisten
-    <section className="w-full py-20 lg:py-24 bg-secondary">
+    <section className="w-full py-20 lg:py-24 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <h2 className="font-display text-4xl lg:text-5xl font-semibold text-foreground mb-4">
-            Jadwalkan Sesi Konsultasi
+            {t("title")}
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Siap untuk diskusi lebih lanjut? Isi formulir di bawah ini dan tim
-            kami akan segera menghubungi Anda.
-          </p>
+          <p className="text-lg text-muted-foreground">{t("subtitle")}</p>
         </div>
 
-        {/* PERBAIKAN: Bungkus form di dalam Card */}
         <Card className="max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle>Formulir Konsultasi</CardTitle>
+            <CardTitle>{t("form_title")}</CardTitle>
           </CardHeader>
           <CardContent>
             <Form {...form}>
@@ -91,9 +83,12 @@ export function ConsultationForm() {
                   name="fullName"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Nama Lengkap</FormLabel>
+                      <FormLabel>{t("label_fullName")}</FormLabel>
                       <FormControl>
-                        <Input placeholder="Contoh: Budi Santoso" {...field} />
+                        <Input
+                          placeholder={t("placeholder_fullName")}
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -104,9 +99,12 @@ export function ConsultationForm() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>{t("label_email")}</FormLabel>
                       <FormControl>
-                        <Input placeholder="email@anda.com" {...field} />
+                        <Input
+                          placeholder={t("placeholder_email")}
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -117,7 +115,7 @@ export function ConsultationForm() {
                   name="consultationMode"
                   render={({ field }) => (
                     <FormItem className="space-y-3">
-                      <FormLabel>Mode Konsultasi</FormLabel>
+                      <FormLabel>{t("label_mode")}</FormLabel>
                       <FormControl>
                         <RadioGroup
                           onValueChange={field.onChange}
@@ -129,7 +127,7 @@ export function ConsultationForm() {
                               <RadioGroupItem value="online" />
                             </FormControl>
                             <FormLabel className="font-normal">
-                              Online (via Zoom)
+                              {t("mode_online")}
                             </FormLabel>
                           </FormItem>
                           <FormItem className="flex items-center space-x-3 space-y-0">
@@ -137,7 +135,7 @@ export function ConsultationForm() {
                               <RadioGroupItem value="offline" />
                             </FormControl>
                             <FormLabel className="font-normal">
-                              Offline (Tatap Muka)
+                              {t("mode_offline")}
                             </FormLabel>
                           </FormItem>
                         </RadioGroup>
@@ -151,7 +149,7 @@ export function ConsultationForm() {
                   name="preferredDate"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel>Tanggal Konsultasi</FormLabel>
+                      <FormLabel>{t("label_date")}</FormLabel>
                       <Popover>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -163,9 +161,11 @@ export function ConsultationForm() {
                               )}
                             >
                               {field.value ? (
-                                format(field.value, "PPP")
+                                format(field.value, "PPP", {
+                                  locale: locale === "id" ? id : enUS,
+                                })
                               ) : (
-                                <span>Pilih tanggal</span>
+                                <span>{t("placeholder_date")}</span>
                               )}
                               <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                             </Button>
@@ -183,9 +183,7 @@ export function ConsultationForm() {
                           />
                         </PopoverContent>
                       </Popover>
-                      <FormDescription>
-                        Pilih tanggal yang Anda inginkan untuk sesi konsultasi.
-                      </FormDescription>
+                      <FormDescription>{t("description_date")}</FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -195,10 +193,10 @@ export function ConsultationForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Pesan Singkat</FormLabel>
+                      <FormLabel>{t("label_message")}</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Ceritakan sedikit tentang ide bisnis Anda..."
+                          placeholder={t("placeholder_message")}
                           className="resize-none"
                           {...field}
                         />
@@ -208,7 +206,7 @@ export function ConsultationForm() {
                   )}
                 />
                 <Button type="submit" size="lg" className="w-full">
-                  Kirim Jadwal Konsultasi
+                  {t("button_submit")}
                 </Button>
               </form>
             </Form>

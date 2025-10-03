@@ -1,0 +1,300 @@
+{
+  "Metadata": {
+    "title": "Sunny Startup | Rencanakan Bisnis Kulinermu",
+    "description": "Ubah ide bisnis makanan Anda menjadi rencana matang dengan kalkulator pintar kami."
+  },
+  "NotFound": {
+    "title": "Oops! Halaman Hilang.",
+    "description": "Sepertinya halaman yang Anda cari sudah pindah, dihapus, atau mungkin tidak pernah ada.",
+    "back_button": "Kembali ke Halaman Sebelumnya"
+  },
+  "Navbar": {
+    "home": "Beranda",
+    "services": "Layanan",
+    "blog": "Blog",
+    "about": "Tentang Kami",
+    "getStarted": "Mulai"
+  },
+  "Hero": {
+    "title": "Mimpi Bisnis Kulinermu Dimulai Dari Sini.",
+    "subtitle": "Ubah ide random jadi rencana cuan yang matang. Kalkulator bisnis pintar kami bantu hitung semuanya, sat-set anti boncos.",
+    "cta_main": "Ayo Hitung Bisnismu",
+    "cta_secondary": "Pelajari Caranya",
+    "mockup_details": "Rincian Modal",
+    "mockup_materials": "Bahan Baku",
+    "mockup_profit": "Prediksi Profit"
+  },
+  "PromoCarousel": {
+    "title1": "Diskon Spesial Peluncuran!",
+    "description1": "Dapatkan diskon 20% untuk analisis rencana bisnismu yang pertama. Ayo masak kesuksesan bersama!",
+    "cta1": "Klaim Penawaran",
+    "illustrationText1": "Banner carousel.",
+    "title2": "Fitur Baru: Prediksi BEP",
+    "description2": "Kini lebih mudah mengetahui kapan bisnismu akan balik modal dengan fitur analisis terbaru kami.",
+    "cta2": "Pelajari Fitur BEP",
+    "illustrationText2": "Banner carousel 2.",
+    "title3": "Download Aplikasi Mobile!",
+    "description3": "Kelola semua insight bisnismu di mana saja. Kini tersedia di iOS dan Android.",
+    "cta3": "Download Sekarang",
+    "illustrationText3": "Banner Carrousel 3."
+  },
+  "ServiceOverview": {
+    "section_title": "Bagaimana Kami Membantumu",
+    "section_subtitle": "Kami menyediakan dukungan lengkap untuk mengubah impian kulinermu menjadi kenyataan yang lezat.",
+    "service1_title": "Validasi Ide Bisnis",
+    "service1_desc": "Kami menganalisis konsep Anda terhadap data pasar untuk melihat apakah ia memiliki bahan-bahan kesuksesan.",
+    "service2_title": "Perencanaan Finansial",
+    "service2_desc": "Dari biaya bahan baku hingga strategi harga, kami membantu Anda membangun fondasi finansial yang kokoh.",
+    "service3_title": "Insight Pasar",
+    "service3_desc": "Dapatkan laporan terperinci tentang target audiens, pesaing, dan peluang pertumbuhan Anda.",
+    "learn_more": "Pelajari Lebih Lanjut →"
+  },
+  "CalculationGuide": {
+    "section_title": "Hitung Angkanya, dengan Mudah.",
+    "section_subtitle": "Kalkulator sederhana kami membantumu memperkirakan biaya awal,potensi keuntungan, dan titik impas. Dapatkan gambaran finansial yang jelas bahkan sebelum Anda memulai.",
+    "mockup_desc": "Mockup antarmuka 3D dari fitur Kalkulator Bisnis yang bersih dan berwarna.",
+    "button_calculator": "Gunakan Kalkulator",
+    "button_tutorial": "Tonton Tutorial"
+  },
+  "Testimonials": {
+    "section_title": "Dicintai oleh Para Foodpreneur",
+    "role1": "Founder Kue Kita",
+    "quote1": "Sunny Startup memberi kami kepercayaan diri untuk launching. Insight mereka sangat tak ternilai!",
+    "role2": "Owner Sambal Juara",
+    "quote2": "Rincian finansialnya benar-benar game-changer. Kami menemukan penghematan biaya yang tidak pernah kami lihat sebelumnya.",
+    "role3": "Co-founder Boba Fest",
+    "quote3": "Menyenangkan, penuh energi, dan super profesional. Mereka benar-benar mengerti pasar Gen Z."
+  },
+  "FinalCTA": {
+    "section_title": "Siap Wujudkan Usaha Impianmu?",
+    "section_subtitle": "Perencanaan yang matang adalah kunci. Ayo mulai langkah pertamamu sekarang, gratis!",
+    "button_start": "Mulai Rencanakan Sekarang"
+  },
+  "Footer": {
+    "address": "Jl. Khatib Sulaiman, Padang Utara, Kota Padang, Sumatera Barat",
+    "explore": "Jelajahi",
+    "contact": "Hubungi Kami",
+    "follow": "Ikuti Kami",
+    "copyright": "Sunny Startup. Semua hak dilindungi.",
+    "service_calculator": "Kalkulator Bisnis",
+    "service_consultation": "Konsultasi",
+    "service_learn_space": "Ruang Belajar",
+    "service_collaboration": "Kolaborasi"
+  },
+  "ServicesPage": {
+    "title": "Layanan Kami",
+    "subtitle": "Semua alat yang Anda butuhkan untuk merencanakan, menjalankan, dan mengembangkan bisnis kuliner Anda.",
+    "tab_calculator": "Kalkulator Bisnis",
+    "tab_consultation": "Konsultasi",
+    "tab_learn_space": "Ruang Belajar",
+    "tab_collaboration": "Kolaborasi",
+    "no_service": "Layanan tidak ditemukan",
+    "select_service": "Silakan pilih salah satu layanan di atas."
+  },
+  "AppCTA": {
+    "section_title": "Bawa Rencana Bisnismu Kemanapun",
+    "section_subtitle": "Unduh aplikasi mobile kami untuk akses mudah ke kalkulator bisnis, tips, dan konsultasi kapan saja, di mana saja.",
+    "button_appstore": "Unduh Aplikasi di",
+    "button_googleplay": "DAPATKAN DI"
+  },
+  "ServiceCalculator": {
+    "title": "Kalkulator Estimasi Layanan",
+    "subtitle": "Dapatkan perkiraan biaya untuk layanan perencanaan bisnis kami. Cukup isi beberapa detail di bawah ini.",
+    "form_title": "Detail Bisnis Anda",
+    "form_label_service": "Jenis Layanan",
+    "form_placeholder_service": "Pilih layanan yang Anda butuhkan",
+    "form_label_scale": "Skala Bisnis",
+    "form_placeholder_scale": "Pilih skala bisnis Anda saat ini",
+    "form_label_revenue": "Perkiraan Pendapatan Bulanan (Rp)",
+    "form_placeholder_revenue": "Contoh: 15000000",
+    "form_button_submit": "Hitung Estimasi",
+    "result_title": "Hasil Estimasi Biaya",
+    "result_subtitle": "Perkiraan biaya layanan:",
+    "result_disclaimer": "*Ini adalah biaya estimasi. Harga final akan didiskusikan saat sesi konsultasi.",
+    "result_placeholder": "Hasil akan muncul di sini setelah Anda mengisi formulir.",
+    "options_service_validation": "Validasi Ide Bisnis",
+    "options_service_planning": "Perencanaan Finansial",
+    "options_service_market_insight": "Insight Pasar",
+    "options_scale_micro": "Mikro (< 100jt/tahun)",
+    "options_scale_small": "Kecil (100jt - 1M/tahun)",
+    "options_scale_medium": "Menengah (1M - 5M/tahun)",
+    "validation_serviceType": "Silakan pilih jenis layanan.",
+    "validation_businessScale": "Silakan pilih skala bisnis.",
+    "validation_monthlyRevenue": "Pendapatan harus angka positif."
+  },
+  "ConsultationForm": {
+    "title": "Jadwalkan Sesi Konsultasi",
+    "subtitle": "Siap untuk diskusi lebih lanjut? Isi formulir di bawah ini dan tim kami akan segera menghubungi Anda.",
+    "form_title": "Formulir Konsultasi",
+    "label_fullName": "Nama Lengkap",
+    "placeholder_fullName": "Contoh: Budi Santoso",
+    "label_email": "Email",
+    "placeholder_email": "email@anda.com",
+    "label_mode": "Mode Konsultasi",
+    "mode_online": "Online (via Zoom)",
+    "mode_offline": "Offline (Tatap Muka)",
+    "label_date": "Tanggal Konsultasi",
+    "placeholder_date": "Pilih tanggal",
+    "description_date": "Pilih tanggal yang Anda inginkan untuk sesi konsultasi.",
+    "label_message": "Pesan Singkat",
+    "placeholder_message": "Ceritakan sedikit tentang ide bisnis Anda...",
+    "button_submit": "Kirim Jadwal Konsultasi",
+    "alert_success": "Jadwal konsultasi Anda telah terkirim!",
+    "validation_fullName": "Nama lengkap minimal 3 karakter.",
+    "validation_email": "Format email tidak valid.",
+    "validation_mode": "Anda perlu memilih mode konsultasi.",
+    "validation_date": "Tanggal konsultasi wajib diisi.",
+    "validation_message_min": "Pesan minimal 10 karakter.",
+    "validation_message_max": "Pesan tidak boleh lebih dari 500 karakter."
+  },
+  "LearnSpace": {
+    "section_title": "Ruang Belajar",
+    "section_subtitle": "Perkaya pengetahuan bisnismu dengan modul, artikel, dan jadwal workshop dari para ahli kami.",
+    "cta_button": "Mulai Belajar",
+    "type1": "Artikel",
+    "title1": "5 Strategi Marketing F&B di Era Digital",
+    "desc1": "Pelajari cara meningkatkan visibilitas brand kuliner Anda dengan budget yang efisien.",
+    "type2": "Workshop",
+    "title2": "Workshop: Perencanaan Finansial untuk Startup",
+    "desc2": "Sesi interaktif untuk membantu Anda menyusun proyeksi keuangan yang solid dan realistis.",
+    "type3": "Modul PDF",
+    "title3": "Panduan Lengkap Analisis Kompetitor",
+    "desc3": "Unduh panduan praktis kami untuk memahami lanskap persaingan di industri Anda."
+  },
+  "Collaboration": {
+    "section_title": "Bangun Jaringan & Berkolaborasi",
+    "section_subtitle": "Kami percaya pertumbuhan terbaik datang dari kerjasama. Temukan peluang untuk berkolaborasi dengan sesama foodpreneur atau menjadi partner resmi Sunny Startup.",
+    "list1": "Kemitraan Supplier",
+    "list2": "Acara & Workshop Bersama",
+    "list3": "Program Co-Branding",
+    "button": "Jadi Partner Kami",
+    "illustration_text": "Ilustrasi 3D yang menunjukkan kemitraan dan kolaborasi antar UMKM."
+  },
+  "UserCollaboration": {
+    "section_title": "Forum Komunitas Foodpreneur",
+    "section_subtitle": "Bergabunglah dengan ruang diskusi eksklusif kami. Berbagi ide, tanyakan tantangan, dan temukan partner bisnis di antara sesama pengguna Sunny Startup.",
+    "illustration_text": "Ilustrasi 3D yang menggambarkan sebuah forum atau komunitas pengguna yang aktif berdiskusi.",
+    "button": "Gabung Komunitas"
+  },
+  "Blog": {
+    "title": "Sunny Startup Blog",
+    "subtitle": "Insight segar, tips praktis, dan cerita inspiratif untuk membantu perjalanan bisnismu.",
+    "search_placeholder": "Cari artikel berdasarkan judul...",
+    "related_articles_title": "Artikel Terkait",
+    "written_by": "DITULIS OLEH",
+    "view_all_articles_by": "Lihat semua artikel oleh {authorName}",
+    "articles_by_author": "Artikel oleh {authorName}",
+    "all_category": "Semua",
+    "posts": {
+      "5-strategi-marketing-fnb": {
+        "author": "Rina A.",
+        "title": "5 Strategi Marketing F&B di Era Digital",
+        "description": "Tingkatkan visibilitas brand kuliner Anda dengan budget yang efisien.",
+        "authorBio": "Rina adalah seorang digital marketer dengan spesialisasi di industri F&B. Ia telah membantu puluhan UMKM untuk go digital.",
+        "date": "28 Sep, 2025",
+        "category": "Tips Bisnis",
+        "content": "<h2>1. Manfaatkan Media Sosial Secara Maksimal</h2><p>Platform seperti Instagram dan TikTok adalah kunci untuk menjangkau audiens Gen Z. Buat konten video pendek yang menarik dan gunakan fitur seperti Reels dan Stories untuk promosi harian.</p><h2>2. Optimalkan SEO Lokal</h2><p>Pastikan bisnis Anda terdaftar di Google Maps dengan informasi yang lengkap. Gunakan kata kunci seperti 'kopi enak di [nama kota]' pada deskripsi bisnis Anda.</p><h2>3. Kolaborasi dengan Influencer</h2><p>Cari food blogger atau influencer lokal yang sesuai dengan brand Anda. Sebuah ulasan positif dari mereka dapat meningkatkan kepercayaan pelanggan secara signifikan.</p>"
+      },
+      "studi-kasus-sambal-juara": {
+        "author": "Budi S.",
+        "title": "Studi Kasus: Dari Dapur Rumahan ke Rak Supermarket",
+        "description": "Perjalanan inspiratif 'Sambal Juara' dalam menembus pasar ritel modern.",
+        "authorBio": "Budi adalah seorang praktisi bisnis yang fokus pada pengembangan produk UMKM agar dapat bersaing di pasar yang lebih luas.",
+        "date": "25 Sep, 2025",
+        "category": "Studi Kasus",
+        "content": "<h2>Awal Mula Sambal Juara</h2><p>'Sambal Juara' dimulai dari resep keluarga yang diuji coba di dapur rumahan. Kunci keberhasilannya adalah konsistensi rasa dan kemasan yang menarik.</p><h2>Tantangan Menembus Ritel</h2><p>Salah satu tantangan terbesar adalah memenuhi standar produksi dan perizinan yang dibutuhkan oleh supermarket besar. Ini membutuhkan investasi awal yang tidak sedikit untuk sertifikasi dan peningkatan kapasitas produksi.</p>"
+      },
+      "tren-kemasan-ramah-lingkungan": {
+        "author": "Rina A.",
+        "title": "Tren Kemasan Ramah Lingkungan untuk Bisnis Kopi",
+        "description": "Tarik pelanggan sadar lingkungan dengan pilihan kemasan yang berkelanjutan.",
+        "authorBio": "Rina adalah seorang digital marketer dengan spesialisasi di industri F&B. Ia telah membantu puluhan UMKM untuk go digital.",
+        "date": "19 Sep, 2025",
+        "category": "Tips Bisnis",
+        "content": "<h2>Pentingnya Green Packaging</h2><p>Semakin banyak konsumen, terutama Gen Z, yang memilih brand berdasarkan nilai-nilai keberlanjutan. Menggunakan kemasan ramah lingkungan bukan lagi pilihan, melainkan sebuah keharusan untuk tetap relevan.</p><h2>Contoh Kemasan</h2><p>Beberapa opsi populer termasuk gelas kopi dari bahan daur ulang, sedotan kertas atau bambu, dan tas belanja dari bahan singkong yang dapat terurai.</p>"
+      },
+      "pentingnya-food-costing": {
+        "author": "Sarah L.",
+        "title": "Mengapa Food Costing Adalah Kunci Profitabilitas Restoran Anda",
+        "description": "Pahami cara menghitung biaya bahan baku untuk memaksimalkan keuntungan.",
+        "authorBio": "Sarah adalah seorang konsultan finansial yang telah membantu banyak restoran dalam merencanakan keuangan mereka.",
+        "date": "22 Sep, 2025",
+        "category": "Edukasi Finansial",
+        "content": "<h2>Apa itu Food Cost?</h2><p>Food cost adalah persentase dari total pendapatan yang Anda habiskan untuk membeli bahan baku makanan. Rumus dasarnya adalah: (Total Biaya Bahan Baku / Total Penjualan) x 100%.</p><h2>Mengapa Ini Penting?</h2><p>Dengan mengetahui food cost per menu, Anda dapat menetapkan harga jual yang tidak hanya menutupi biaya, tetapi juga memberikan margin keuntungan yang sehat. Tanpa perhitungan ini, bisnis Anda berisiko mengalami kerugian tanpa disadari.</p>"
+      },
+      "membangun-loyalitas-pelanggan": {
+        "author": "Budi S.",
+        "title": "Membangun Loyalitas Pelanggan Melalui Program Membership",
+        "description": "Ubah pembeli sesekali menjadi pelanggan setia dengan program loyalitas.",
+        "authorBio": "Budi adalah seorang praktisi bisnis yang fokus pada pengembangan produk UMKM agar dapat bersaing di pasar yang lebih luas.",
+        "date": "15 Sep, 2025",
+        "category": "Studi Kasus",
+        "content": "<h2>Studi Kasus: Kopi Senja</h2><p>'Kopi Senja' berhasil meningkatkan retensi pelanggan sebesar 40% setelah meluncurkan program membership digital. Pelanggan dapat mengumpulkan poin setiap pembelian yang bisa ditukar dengan produk gratis.</p><h2>Kunci Sukses</h2><p>Program ini berhasil karena mudah digunakan (melalui aplikasi sederhana) dan memberikan reward yang benar-benar diinginkan oleh pelanggan mereka.</p>"
+      },
+      "manajemen-inventaris-efektif": {
+        "author": "Sarah L.",
+        "title": "Tips Manajemen Inventaris untuk Menghindari Pemborosan",
+        "description": "Hindari kerugian akibat bahan baku terbuang dengan sistem inventaris.",
+        "authorBio": "Sarah adalah seorang konsultan finansial yang telah membantu banyak restoran dalam merencanakan keuangan mereka.",
+        "date": "12 Sep, 2025",
+        "category": "Edukasi Finansial",
+        "content": "<h2>Metode First-In, First-Out (FIFO)</h2><p>Prinsip dasar manajemen inventaris di F&B adalah FIFO. Bahan baku yang pertama kali masuk harus menjadi yang pertama kali keluar. Ini mencegah bahan makanan menjadi kadaluwarsa.</p><h2>Lakukan Stock Opname Rutin</h2><p>Jadwalkan pengecekan stok secara rutin, misalnya mingguan. Ini membantu Anda mengetahui bahan apa yang pergerakannya cepat dan mana yang lambat, sehingga Anda bisa menyesuaikan pembelian di masa depan.</p>"
+      },
+      "riset-pasar-untuk-menu-baru": {
+        "author": "Rina A.",
+        "title": "Cara Melakukan Riset Pasar Sebelum Meluncurkan Menu Baru",
+        "description": "Validasi ide menu baru Anda dengan data untuk memastikan kesuksesan.",
+        "authorBio": "Rina adalah seorang digital marketer dengan spesialisasi di industri F&B. Ia telah membantu puluhan UMKM untuk go digital.",
+        "date": "10 Sep, 2025",
+        "category": "Tips Bisnis",
+        "content": "<h2>Survei Pelanggan</h2><p>Cara termudah adalah dengan bertanya langsung kepada pelanggan setia Anda. Buat survei singkat melalui Google Forms atau media sosial untuk menanyakan preferensi mereka.</p><h2>Uji Coba Terbatas</h2><p>Sebelum meluncurkan secara resmi, tawarkan menu baru sebagai 'menu spesial' selama seminggu. Lihat respons pelanggan dan minta masukan dari mereka.</p>"
+      },
+      "analisis-kompetitor-restoran": {
+        "author": "Budi S.",
+        "title": "Studi Kasus: Analisis Kompetitor untuk Menentukan Harga Jual",
+        "description": "Pelajari bagaimana restoran lokal bersaing dengan brand besar.",
+        "authorBio": "Budi adalah seorang praktisi bisnis yang fokus pada pengembangan produk UMKM agar dapat bersaing di pasar yang lebih luas.",
+        "date": "08 Sep, 2025",
+        "category": "Studi Kasus",
+        "content": "<h2>Memetakan Kompetitor</h2><p>Restoran 'Nasi Juara' memetakan semua kompetitor di radius 1 km. Mereka menganalisis harga, menu andalan, dan promo yang ditawarkan.</p><h2>Menemukan Celah</h2><p>Mereka menemukan bahwa tidak ada kompetitor yang menawarkan paket makan siang hemat untuk karyawan kantor. 'Nasi Juara' kemudian meluncurkan paket seharga Rp 25.000 dan berhasil menguasai pasar tersebut.</p>"
+      },
+      "pajak-umkm-fnb": {
+        "author": "Sarah L.",
+        "title": "Panduan Pajak untuk UMKM F&B yang Wajib Anda Tahu",
+        "description": "Pahami kewajiban perpajakan untuk bisnis kuliner Anda sejak dini.",
+        "authorBio": "Sarah adalah seorang konsultan finansial yang telah membantu banyak restoran dalam merencanakan keuangan mereka.",
+        "date": "05 Sep, 2025",
+        "category": "Edukasi Finansial",
+        "content": "<h2>Pajak Final 0.5%</h2><p>Untuk UMKM dengan omzet di bawah Rp 4.8 Miliar per tahun, pemerintah memberikan fasilitas PPh Final dengan tarif 0.5% dari total omzet bulanan. Ini jauh lebih sederhana daripada perhitungan pajak normal.</p><h2>Pentingnya Pencatatan</h2><p>Meskipun tarifnya sederhana, Anda tetap wajib melakukan pencatatan omzet harian dengan rapi. Ini akan menjadi dasar perhitungan pajak Anda dan sangat penting jika ada pemeriksaan di kemudian hari.</p>"
+      }
+    }
+  },
+  "AboutPage": {
+    "founder_title": "Founder & CEO Sunny Startup",
+    "founder_bio": "Alex adalah seorang foodpreneur serial yang memiliki hasrat besar untuk membantu UMKM kuliner bertumbuh. Dengan latar belakang di bidang teknologi dan keuangan, ia mendirikan Sunny Startup untuk mengatasi masalah utama yang sering dihadapi para pengusaha pemula: perencanaan bisnis yang matang.",
+    "founder_exp1": "10+ Tahun di Industri F&B",
+    "founder_exp2": "Pakar Perencanaan Keuangan",
+    "founder_exp3": "Mantan Software Engineer",
+    "timeline_2023": "Ide Sunny Startup tercetus dari sebuah diskusi di kedai kopi tentang sulitnya memulai bisnis kuliner.",
+    "timeline_2024": "Tim inti terbentuk dan pengembangan versi beta dari 'Business Calculator' dimulai.",
+    "timeline_2025": "Peluncuran resmi Sunny Startup ke publik dengan misi memberdayakan jutaan UMKM di Indonesia.",
+    "hero_title": "Membantu Wujudkan <primary>Mimpi Foodpreneur</primary>",
+    "hero_subtitle": "Kami percaya setiap ide bisnis kuliner yang hebat berhak mendapatkan awal yang cerah. Pelajari lebih lanjut tentang visi, misi, dan tim di balik Sunny Startup.",
+    "vision_mission_title": "Membangun Masa Depan Kuliner Indonesia",
+    "vision_title": "Visi Kami",
+    "vision_desc": "Menjadi platform perencanaan bisnis #1 bagi para foodpreneur di Asia Tenggara, memberdayakan mereka untuk membangun usaha yang berkelanjutan dan profitabel.",
+    "mission_title": "Misi Kami",
+    "mission_desc": "Menyediakan alat bantu yang mudah diakses, data yang akurat, dan wawasan bisnis yang praktis untuk mengurangi risiko kegagalan bagi para pengusaha kuliner pemula.",
+    "timeline_section_title": "Perjalanan Kami",
+    "timeline_section_subtitle": "Dari sebuah ide sederhana hingga menjadi platform nyata yang memberdayakan."
+  },
+  "FeedbackForm": {
+    "title": "Ada Pertanyaan?",
+    "subtitle": "Kami siap membantu. Kirimkan pertanyaan atau umpan balik Anda melalui form di bawah ini.",
+    "placeholder_email": "Email Anda",
+    "placeholder_title": "Judul Pertanyaan",
+    "placeholder_message": "Tuliskan pertanyaan atau umpan balik Anda di sini...",
+    "button_submit": "Kirim Pesan",
+    "alert_success": "Terima kasih! Pesan Anda telah kami terima."
+  }
+}
