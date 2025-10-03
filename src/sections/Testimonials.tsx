@@ -54,7 +54,7 @@ export async function Testimonials({ locale }: { locale: string }) {
                             </AvatarFallback>
                           </Avatar>
                           <p className="text-muted-foreground italic mb-4 flex-grow">
-                            "{originalQuote}"
+                            &quot;{originalQuote}&quot;
                           </p>
                           {showTranslation && (
                             <p className="text-muted-foreground/80 italic text-sm mb-4 border-l-2 border-border pl-4 text-left">
