@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { postsData } from "@/lib/data";
 import type { Post } from "@/lib/data";
-import { BlogList } from "@/sections/blog/BlogList";
+import { BlogFull } from "@/sections/blog/BlogFull";
 
 export default async function BlogPage({
   params: { locale },
@@ -22,8 +22,8 @@ export default async function BlogPage({
   }));
 
   return (
-    <main>
-      <BlogList
+    <main className="w-full py-20 lg:py-24 bg-[#F7FAFC] overflow-hidden">
+      <BlogFull
         posts={translatedPosts}
         pageTitle={t("title")}
         pageSubtitle={t("subtitle")}
