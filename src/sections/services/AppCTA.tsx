@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/navigation";
 import { useTranslations } from "next-intl";
@@ -8,15 +9,39 @@ import { FaApple, FaGooglePlay } from "react-icons/fa";
 export function AppCTA() {
   const t = useTranslations("AppCTA");
   return (
-    <section className="w-full bg-primary">
-      <div className="container mx-auto px-6 py-20 text-center flex flex-col items-center">
-        <h2 className="font-display text-4xl font-semibold text-primary-foreground mb-4">
+    <section className="w-full bg-primary overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, ease: "easeOut", staggerChildren: 0.2 }}
+        className="container mx-auto px-6 py-20 text-center flex flex-col items-center"
+      >
+        <motion.h2
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          className="font-display text-4xl font-semibold text-primary-foreground mb-4"
+        >
           {t("section_title")}
-        </h2>
-        <p className="max-w-xl mx-auto mb-8 text-primary-foreground/80 text-lg">
+        </motion.h2>
+        <motion.p
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          className="max-w-xl mx-auto mb-8 text-primary-foreground/80 text-lg"
+        >
           {t("section_subtitle")}
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4">
+        </motion.p>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0 },
+          }}
+          className="flex flex-col sm:flex-row gap-4"
+        >
           <Button variant="secondary" size="lg" asChild>
             <Link
               href="https://www.apple.com/id/app-store/"
@@ -41,8 +66,8 @@ export function AppCTA() {
               </div>
             </Link>
           </Button>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

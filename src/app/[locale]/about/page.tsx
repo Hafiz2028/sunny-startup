@@ -1,5 +1,3 @@
-// src/app/[locale]/about/page.tsx (Versi Final)
-
 import { AboutHero } from "@/sections/about/AboutHero";
 import { VisionMission } from "@/sections/about/VisionMission";
 import { FounderProfile } from "@/sections/about/FounderProfile";
@@ -13,10 +11,10 @@ export default function AboutPage({
 }) {
   return (
     <main>
-      <AboutHero locale={locale} />
-      <VisionMission locale={locale} />
-      <FounderProfile locale={locale} />
-      <HistoryTimeline locale={locale} />
+      <AboutHero />
+      <VisionMission />
+      <FounderProfile />
+      <HistoryTimeline />
       <FeedbackForm />
     </main>
   );

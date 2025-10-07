@@ -1,47 +1,51 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
 import type { Post } from "@/lib/data";
 import { postsData } from "@/lib/data";
 import { BlogPostCard } from "../blog/BlogPostCard";
 
-export async function RelatedPosts({
+export function RelatedPosts({
   post: currentPost,
-  locale,
+  allPosts,
 }: {
   post: Post;
-  locale: string;
+  allPosts: Post[];
 }) {
-  const t = await getTranslations({ locale, namespace: "Blog" });
-
-  const relatedPosts: Post[] = postsData
+  const t = useTranslations("Blog");
+  const relatedPosts = allPosts
     .filter(
-      (p) =>
-        t(`posts.${p.slug}.category`) === currentPost.category &&
-        p.slug !== currentPost.slug
+      (p) => p.category === currentPost.category && p.slug !== currentPost.slug
     )
-    .slice(0, 3)
-    .map((p) => ({
-      ...p,
-      title: t(`posts.${p.slug}.title`),
-      description: t(`posts.${p.slug}.description`),
-      author: t(`posts.${p.slug}.author`),
-      date: t(`posts.${p.slug}.date`),
-      category: t(`posts.${p.slug}.category`),
-      content: t(`posts.${p.slug}.content`),
-      authorBio: t(`posts.${p.slug}.authorBio`),
-    }));
+    .slice(0, 3);
 
   if (relatedPosts.length === 0) return null;
 
   return (
-    <div className="mt-16">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5, ease: "easeOut", staggerChildren: 0.1 }}
+      className="mt-16"
+    >
       <h2 className="font-display text-3xl font-bold mb-8 text-center text-[#1A202C]">
         {t("related_articles_title")}
       </h2>
       <div className="grid md:grid-cols-3 gap-8">
         {relatedPosts.map((related) => (
-          <BlogPostCard key={related.slug} post={related} />
+          <motion.div
+            key={related.slug}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
+            <BlogPostCard post={related} />
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

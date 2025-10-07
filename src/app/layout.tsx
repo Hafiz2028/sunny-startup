@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Fredoka } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { ProgressBarProvider } from "@/components/shared/ProgressBarProvider";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -35,7 +36,7 @@ export default function RootLayout({
           fredoka.variable
         )}
       >
-        {children}
+        <ProgressBarProvider>{children}</ProgressBarProvider>
       </body>
     </html>
   );

@@ -1,20 +1,22 @@
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/navigation"; // -> 1. Ganti impor Link
+"use client";
+
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
+import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { Post } from "@/lib/data";
 
-// 2. Ubah menjadi async dan terima 'locale'
-export async function AuthorProfile({
-  post,
-  locale,
-}: {
-  post: Post;
-  locale: string;
-}) {
-  const t = await getTranslations({ locale, namespace: "Blog" });
+export function AuthorProfile({ post }: { post: Post }) {
+  const t = useTranslations("Blog");
 
   return (
-    <div className="bg-white border border-gray-200 p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="bg-white border border-gray-200 p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left"
+    >
       <Avatar className="h-24 w-24">
         <AvatarImage src={post.authorImage} alt={post.author} />
         <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
@@ -34,6 +36,6 @@ export async function AuthorProfile({
           {t("view_all_articles_by", { authorName: post.author })}
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

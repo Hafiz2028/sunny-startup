@@ -1,15 +1,24 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/navigation";
 import { PlayCircle } from "lucide-react";
-import { getTranslations } from "next-intl/server";
 
-export async function CalculationGuide({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: "CalculationGuide" });
+export function CalculationGuide() {
+  const t = useTranslations("CalculationGuide");
   return (
-    <section className="w-full py-20 lg:py-24 bg-background">
+    <section className="w-full py-20 lg:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <div className="lg:w-1/2 w-full lg:order-last">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+            className="lg:w-1/2 w-full lg:order-last"
+          >
             <div className="bg-secondary aspect-video rounded-2xl flex items-center justify-center p-8 shadow-inner-lg">
               <div className="w-full h-full border-2 border-dashed border-primary/20 rounded-xl flex flex-col items-center justify-center text-center">
                 <span className="text-6xl mb-4">💻</span>
@@ -18,16 +27,34 @@ export async function CalculationGuide({ locale }: { locale: string }) {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           <div className="lg:w-1/2 text-center lg:text-left">
-            <h2 className="font-display text-4xl font-semibold text-foreground mb-4">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5 }}
+              className="font-display text-4xl font-semibold text-foreground mb-4"
+            >
               {t("section_title")}
-            </h2>
-            <p className="mb-8 text-muted-foreground text-lg">
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mb-8 text-muted-foreground text-lg"
+            >
               {t("section_subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
               <Button size="lg" asChild>
                 <Link href="/services?tab=calculator">
                   {t("button_calculator")}
@@ -44,7 +71,7 @@ export async function CalculationGuide({ locale }: { locale: string }) {
                   {t("button_tutorial")}
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

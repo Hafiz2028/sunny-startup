@@ -1,4 +1,7 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { promoData } from "@/lib/promo-data";
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
@@ -10,9 +13,10 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
+import { Link } from "@/navigation";
 
-export async function PromoCarousel({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: "PromoCarousel" });
+export function PromoCarousel() {
+  const t = useTranslations("PromoCarousel");
   return (
     <section className="w-full py-16 sm:py-20 bg-secondary">
       <div className="container mx-auto">
@@ -20,17 +24,29 @@ export async function PromoCarousel({ locale }: { locale: string }) {
           <CarouselContent>
             {promoData.map((promo, index) => (
               <CarouselItem key={index}>
-                <div className="p-1">
-                  <Card className="bg-background shadow-lg border-none">
-                    <CardContent className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 md:p-12">
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.7,
+                    delay: 0.5,
+                    ease: [0.25, 1, 0.5, 1],
+                  }}
+                  className="p-1 h-full"
+                >
+                  <Card className="bg-background shadow-lg border-none h-full">
+                    <CardContent className="flex flex-col lg:flex-row items-center justify-between gap-8 p-8 md:p-12 h-full">
                       <div className="lg:w-1/2 text-center lg:text-left">
                         <h2 className="font-display text-3xl md:text-4xl text-foreground font-semibold mb-3">
-                          {t(promo.titleKey)}
+                          {t(promo.titleKey as any)}
                         </h2>
                         <p className="text-muted-foreground mb-6">
-                          {t(promo.descriptionKey)}
+                          {t(promo.descriptionKey as any)}
                         </p>
-                        <Button size="lg">{t(promo.ctaKey)}</Button>
+                        <Button size="lg" asChild>
+                          <Link href="#">{t(promo.ctaKey as any)}</Link>
+                        </Button>
                       </div>
                       <div className="lg:w-1/2 flex justify-center items-center h-64 lg:h-80 w-full bg-secondary rounded-lg">
                         <div className="w-full h-full border-2 border-dashed border-primary/20 rounded-xl flex flex-col items-center justify-center text-center p-4">
@@ -44,7 +60,7 @@ export async function PromoCarousel({ locale }: { locale: string }) {
                       </div>
                     </CardContent>
                   </Card>
-                </div>
+                </motion.div>
               </CarouselItem>
             ))}
           </CarouselContent>

@@ -1,18 +1,45 @@
-import { Link } from "@/navigation"; // ✅ Ganti impor ini
+"use client";
+
+import { Link } from "@/navigation";
+import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import type { Post } from "@/lib/data";
 
 export function PostHeader({ post }: { post: Post }) {
   return (
-    <header className="mb-10 text-center">
-      <Badge className="mb-4 bg-primary/10 text-primary font-semibold">
-        {post.category}
-      </Badge>
-      <h1 className="font-display text-3xl lg:text-5xl font-bold text-[#1A202C] mb-6">
+    <motion.header
+      initial="hidden"
+      animate="visible"
+      transition={{ staggerChildren: 0.1 }}
+      className="mb-10 text-center"
+    >
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: -20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+      >
+        <Badge className="mb-4 bg-primary/10 text-primary font-semibold">
+          {post.category}
+        </Badge>
+      </motion.div>
+      <motion.h1
+        variants={{
+          hidden: { opacity: 0, y: -20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="font-display text-3xl lg:text-5xl font-bold text-[#1A202C] mb-6"
+      >
         {post.title}
-      </h1>
-      <div className="flex items-center justify-center gap-4 text-sm text-gray-500">
+      </motion.h1>
+      <motion.div
+        variants={{
+          hidden: { opacity: 0, y: -20 },
+          visible: { opacity: 1, y: 0 },
+        }}
+        className="flex items-center justify-center gap-4 text-sm text-gray-500"
+      >
         <Link
           href={`/author/${post.authorSlug}`}
           className="flex items-center gap-3 group"
@@ -27,7 +54,7 @@ export function PostHeader({ post }: { post: Post }) {
         </Link>
         <span>•</span>
         <span>{post.date}</span>
-      </div>
-    </header>
+      </motion.div>
+    </motion.header>
   );
 }

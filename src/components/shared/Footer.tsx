@@ -1,15 +1,24 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Link } from "@/navigation";
 import { Phone, Mail } from "lucide-react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import { footerLinks } from "@/lib/footer-links";
 
-export async function Footer({ locale }: { locale: string }) {
-  const tFooter = await getTranslations({ locale, namespace: "Footer" });
-  const tNavbar = await getTranslations({ locale, namespace: "Navbar" });
+export function Footer() {
+  const tFooter = useTranslations("Footer");
+  const tNavbar = useTranslations("Navbar");
 
   return (
-    <footer className="bg-foreground text-background/80">
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      className="bg-foreground text-background/80"
+    >
       <div className="container mx-auto px-6 pt-16 pb-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-8">
           <div>
@@ -86,6 +95,6 @@ export async function Footer({ locale }: { locale: string }) {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

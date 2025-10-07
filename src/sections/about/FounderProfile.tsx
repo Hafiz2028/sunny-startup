@@ -1,23 +1,37 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { founderData } from "@/lib/data";
 import { Badge } from "@/components/ui/badge";
 
-export async function FounderProfile({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: "AboutPage" });
+export function FounderProfile() {
+  const t = useTranslations("AboutPage");
 
   return (
     <section className="w-full py-20 lg:py-28 bg-white">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-lg">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+            className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-lg"
+          >
             <img
               src={founderData.imageUrl}
               alt={founderData.name}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-tl from-primary/10 to-transparent opacity-50"></div>
-          </div>
-          <div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+          >
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A202C]">
               {founderData.name}
             </h2>
@@ -38,7 +52,7 @@ export async function FounderProfile({ locale }: { locale: string }) {
                 </Badge>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

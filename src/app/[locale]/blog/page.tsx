@@ -1,5 +1,3 @@
-// src/app/[locale]/blog/page.tsx (Versi Final)
-
 import { getTranslations } from "next-intl/server";
 import { postsData } from "@/lib/data";
 import type { Post } from "@/lib/data";
@@ -19,7 +17,7 @@ export default async function BlogPage({
     author: t(`posts.${post.slug}.author`),
     date: t(`posts.${post.slug}.date`),
     category: t(`posts.${post.slug}.category`),
-    content: t.raw(`posts.${post.slug}.content`), 
+    content: t.raw(`posts.${post.slug}.content`),
     authorBio: t(`posts.${post.slug}.authorBio`),
   }));
 

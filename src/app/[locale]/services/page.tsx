@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { motion, AnimatePresence } from "framer-motion";
 import { Calculator, Users, BookOpen, Handshake } from "lucide-react";
 import { ServiceCalculator } from "@/sections/services/ServiceCalculator";
 import { AppCTA } from "@/sections/services/AppCTA";
@@ -38,7 +39,6 @@ export default function ServicesPage() {
       icon: Handshake,
       component: (
         <div className="space-y-16 md:space-y-24">
-          {" "}
           <Collaboration /> <UserCollaboration />{" "}
         </div>
       ),
@@ -70,16 +70,26 @@ export default function ServicesPage() {
   return (
     <>
       <div className="container mx-auto px-6 py-12 md:py-16">
-        <div className="text-center mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-center mb-12"
+        >
           <h1 className="font-display text-4xl md:text-5xl font-bold">
             {t("title")}
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             {t("subtitle")}
           </p>
-        </div>
+        </motion.div>
 
-        <div className="w-full border-b border-border mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="w-full border-b border-border mb-12"
+        >
           <div className="w-full overflow-x-auto pb-2 -mb-2 no-scrollbar">
             <div className="flex flex-nowrap justify-start md:justify-center -mb-px space-x-4 md:space-x-8">
               {serviceTabs.map((tab) => (
@@ -99,18 +109,28 @@ export default function ServicesPage() {
               ))}
             </div>
           </div>
-        </div>
-        <div className="w-full">
-          {activeService ? (
-            <div>{activeService.component}</div>
-          ) : (
-            <div className="text-center py-16">
-              <h2 className="text-2xl font-semibold">{t("no_service")}</h2>
-              <p className="text-muted-foreground mt-2">
-                {t("select_service")}
-              </p>
-            </div>
-          )}
+        </motion.div>
+        <div className="w-full overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTab}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              {activeService ? (
+                <div>{activeService.component}</div>
+              ) : (
+                <div className="text-center py-16">
+                  <h2 className="text-2xl font-semibold">{t("no_service")}</h2>
+                  <p className="text-muted-foreground mt-2">
+                    {t("select_service")}
+                  </p>
+                </div>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
       <div className="mt-16 md:mt-24">

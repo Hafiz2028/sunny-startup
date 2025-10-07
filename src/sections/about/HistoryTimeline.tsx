@@ -1,27 +1,40 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { timelineData } from "@/lib/data";
 import { Check } from "lucide-react";
 
-export async function HistoryTimeline({ locale }: { locale: string }) {
-  const t = await getTranslations({ locale, namespace: "AboutPage" });
+export function HistoryTimeline() {
+  const t = useTranslations("AboutPage");
 
   return (
-    <section className="w-full py-20 lg:py-28 bg-[#F7FAFC]">
+    <section className="w-full py-20 lg:py-28 bg-[#F7FAFC] overflow-hiddenmotion.">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-3xl mx-auto text-center mb-16"
+        >
           <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#1A202C]">
             {t("timeline_section_title")}
           </h2>
           <p className="text-lg text-gray-600 mt-2">
             {t("timeline_section_subtitle")}
           </p>
-        </div>
+        </motion.div>
         <div className="relative max-w-4xl mx-auto">
           <div className="absolute left-4 md:left-1/2 top-1 h-[calc(100%-2rem)] w-0.5 bg-gray-200 md:-translate-x-1/2" />
           <div className="space-y-12">
             {timelineData.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative flex items-start md:grid md:grid-cols-2 md:gap-x-16"
               >
                 <div className="absolute left-4 md:left-1/2 top-1 w-5 h-5 rounded-full bg-primary border-4 border-[#F7FAFC] -translate-x-1/2 z-10 flex items-center justify-center">
@@ -41,7 +54,7 @@ export async function HistoryTimeline({ locale }: { locale: string }) {
                     {t(item.event)}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
