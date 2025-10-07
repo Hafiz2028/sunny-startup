@@ -30,8 +30,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export async function VisionMission() {
-  const t = await useTranslations("AboutPage");
+export function VisionMission() {
+  const t = useTranslations("AboutPage");
 
   return (
     <motion.section
