@@ -46,6 +46,7 @@ export function LanguageSwitcher() {
                 size="sm"
                 className="flex items-center gap-2 px-3"
                 disabled={isPending}
+                aria-label={`Switch language, current language: ${locale === "en" ? "English" : "Indonesia"}`}
               >
                 <ReactCountryFlag
                   countryCode={currentFlag}
@@ -55,6 +56,7 @@ export function LanguageSwitcher() {
                     height: "1.25em",
                     borderRadius: "2px",
                   }}
+                  aria-hidden="true"
                 />
                 <span className="font-semibold uppercase">{locale}</span>
               </Button>

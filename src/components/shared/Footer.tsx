@@ -33,6 +33,7 @@ export function Footer() {
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
+                title="Peta Lokasi Kantor Sunny Startup"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -77,13 +78,13 @@ export function Footer() {
               {tFooter("follow")}
             </h4>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="#" aria-label="Follow us on Facebook" className="hover:text-primary transition-colors">
                 <FaFacebook size={24} />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="#" aria-label="Follow us on Twitter" className="hover:text-primary transition-colors">
                 <FaTwitter size={24} />
               </a>
-              <a href="#" className="hover:text-primary transition-colors">
+              <a href="#" aria-label="Follow us on Instagram" className="hover:text-primary transition-colors">
                 <FaInstagram size={24} />
               </a>
             </div>

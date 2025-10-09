@@ -25,14 +25,10 @@ export function PromoCarousel() {
             {promoData.map((promo, index) => (
               <CarouselItem key={index}>
                 <motion.div
-                  initial={{ opacity: 0, x: 100 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.7,
-                    delay: 0.5,
-                    ease: [0.25, 1, 0.5, 1],
-                  }}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
                   className="p-1 h-full"
                 >
                   <Card className="bg-background shadow-lg border-none h-full">

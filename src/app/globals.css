@@ -12,20 +12,22 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    /* INI BAGIAN YANG DIPERBAIKI */
-    --primary: 169 58% 45%; /* #30B498 - Kembali ke Hijau Toska */
-    --primary-foreground: 0 0% 100%; /* Kembali ke Putih */
+    /* ✅ FIX UNTUK TOMBOL "MULAI" (HIJAU TOSKA) */
+    /* Warna hijau dibuat lebih gelap agar teks putih di atasnya lolos kontras. */
+    --primary: 169 58% 35%; /* #268C78 */
+    --primary-foreground: 0 0% 100%; /* Putih */
 
-    /* [STRATEGIS] Warna Spotlight (Kuning Telur) */
-    /* Variabel ini kita buat khusus untuk CTA paling penting */
+    /* ✅ FIX UNTUK TOMBOL "AYO HITUNG BISNISMU" (KUNING) */
+    /* Warna kuning telur dari logo Anda. */
     --spotlight: 41 90% 48%; /* #F3AF04 */
-    --spotlight-foreground: 222.2 47.4% 11.2%; /* Teks gelap agar terbaca */
+    /* Teks wajib gelap agar kontras dengan latar kuning. */
+    --spotlight-foreground: 222.2 47.4% 11.2%; /* #1C2B3A (Biru Sangat Gelap) */
 
     --secondary: 175 44% 93%; /* #E3F5F4 */
     --secondary-foreground: 168 96% 30%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 215.4 16.3% 40%;
 
     --accent: 170 50% 80%;
     --accent-foreground: 168 96% 30%;
@@ -49,8 +51,16 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 169 58% 45%; /* Hijau Toska */
+    /* ✅ FIX UNTUK TOMBOL "MULAI" (HIJAU TOSKA) */
+    /* Warna hijau dibuat lebih gelap agar teks putih di atasnya lolos kontras. */
+    --primary: 169 58% 35%; /* #268C78 */
     --primary-foreground: 0 0% 100%; /* Putih */
+
+    /* ✅ FIX UNTUK TOMBOL "AYO HITUNG BISNISMU" (KUNING) */
+    /* Warna kuning telur dari logo Anda. */
+    --spotlight: 41 90% 48%; /* #F3AF04 */
+    /* Teks wajib gelap agar kontras dengan latar kuning. */
+    --spotlight-foreground: 222.2 47.4% 11.2%; /* #1C2B3A (Biru Sangat Gelap) */
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -63,9 +73,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 168 96% 36%;
-    /* Warna spotlight tetap kuning cerah di dark mode agar tetap menonjol */
-    --spotlight: 41 90% 48%;
-    --spotlight-foreground: 222.2 47.4% 11.2%;
   }
 }
 

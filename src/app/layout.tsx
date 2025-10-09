@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins, Fredoka } from "next/font/google";
 import { cn } from "@/lib/utils";
+import Script from "next/script";
 import { ProgressBarProvider } from "@/components/shared/ProgressBarProvider";
 import "./globals.css";
 
@@ -28,7 +29,7 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale || "id"} suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased flex flex-col",
@@ -37,6 +38,10 @@ export default function RootLayout({
         )}
       >
         <ProgressBarProvider>{children}</ProgressBarProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=YOUR_ID"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

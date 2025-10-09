@@ -60,13 +60,21 @@ export function Testimonials({
                   key={testimonial.id}
                   className="md:basis-1/2 lg:basis-1/3"
                 >
-                  <div className="p-1 h-full">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="p-1 h-full"
+                  >
                     <Card className="h-full">
                       <CardContent className="flex flex-col items-center justify-center p-6 text-center h-full">
                         <Avatar className="w-20 h-20 mb-4 border-4 border-primary/50">
                           <AvatarImage
                             src={testimonial.avatarSrc}
                             alt={`Foto ${testimonial.name}`}
+                            width={80}
+                            height={80}
                           />
                           <AvatarFallback>
                             {testimonial.initials}
@@ -82,16 +90,16 @@ export function Testimonials({
                           </p>
                         )}
                         <div className="mt-auto">
-                          <h4 className="font-semibold text-foreground">
+                          <h3 className="font-semibold text-foreground">
                             {testimonial.name}
-                          </h4>
+                          </h3>
                           <p className="text-sm text-muted-foreground">
                             {testimonial.role}
                           </p>
                         </div>
                       </CardContent>
                     </Card>
-                  </div>
+                  </motion.div>
                 </CarouselItem>
               ))}
             </CarouselContent>

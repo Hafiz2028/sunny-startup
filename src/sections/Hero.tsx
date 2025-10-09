@@ -4,7 +4,12 @@ import { PlayCircle } from "lucide-react";
 import { MinimalistCta } from "@/components/ui/MinimalistCta";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import {
+  AnimatedDiv1,
+  AnimatedDiv2,
+  AnimatedH1,
+  AnimatedP,
+} from "./AnimatedHeroElements";
 
 const UiMockup = ({ t }: { t: (key: string) => string }) => (
   <div className="w-full h-full bg-secondary/50 rounded-2xl p-4 md:p-6 border border-border/10 shadow-inner-lg flex flex-col gap-4">
@@ -55,28 +60,9 @@ export function HeroSection() {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div className="text-center lg:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display text-4xl md:text-6xl font-bold text-foreground leading-tight mb-4"
-            >
-              {t("title")}
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 mb-8 text-muted-foreground"
-            >
-              {t("subtitle")}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-8"
-            >
+            <AnimatedH1>{t("title")}</AnimatedH1>
+            <AnimatedP>{t("subtitle")}</AnimatedP>
+            <AnimatedDiv1>
               <MinimalistCta
                 href="/services?tab=calculator"
                 variant="spotlight"
@@ -94,17 +80,12 @@ export function HeroSection() {
                 <span>{t("cta_secondary")}</span>
                 <span className="absolute bottom-[-4px] left-0 h-[2px] w-0 bg-foreground transition-all duration-300 group-hover:w-full"></span>
               </Link>
-            </motion.div>
+            </AnimatedDiv1>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 1, 0.5, 1] }}
-            className="hidden lg:block w-full h-[500px]"
-          >
+          <AnimatedDiv2>
             <UiMockup t={t} />
-          </motion.div>
+          </AnimatedDiv2>
         </div>
       </div>
     </section>
