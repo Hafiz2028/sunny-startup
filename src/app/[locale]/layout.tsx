@@ -16,6 +16,10 @@ export async function generateMetadata({
   };
 }
 
+export function generateStaticParams() {
+  return [{ locale: "id" }, { locale: "en" }];
+}
+
 async function getMessages(locale: string) {
   try {
     return (await import(`@/messages/${locale}.json`)).default;
