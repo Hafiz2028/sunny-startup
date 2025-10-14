@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "Sunny Startup | Plan Your Culinary Business",
-    "description": "Turn your food business idea into a solid plan with our smart calculator."
+    "title": "Complete & Quick Culinary Business Plan | Sunny Startup",
+    "description": "Sunny Startup helps you turn your ideas into a successful culinary business. Create a business plan, calculate capital, and predict profits with our smart tools. Get started for free!"
   },
   "NotFound": {
     "title": "Oops! Page Not Found.",
@@ -16,7 +16,7 @@
     "getStarted": "Get Started"
   },
   "Hero": {
-    "title": "Your Culinary Business Dream Starts Here.",
+    "title": "Your Culinary <primary>Business Dream</primary> Starts Here.",
     "subtitle": "Turn random ideas into a profitable plan. Our smart business calculator helps you figure everything out, fast and efficiently.",
     "cta_main": "Calculate Your Business",
     "cta_secondary": "Learn How",
@@ -82,14 +82,35 @@
     "service_collaboration": "Collaboration"
   },
   "ServicesPage": {
-    "title": "Our Services",
+    "title": "<primary>Sunny</primary> Startup's Services",
     "subtitle": "All the tools you need to plan, run, and grow your culinary business.",
-    "tab_calculator": "Business Calculator",
-    "tab_consultation": "Consultation",
-    "tab_learn_space": "Learn Space",
-    "tab_collaboration": "Collaboration",
-    "no_service": "Service Not Found",
-    "select_service": "Please select one of the services above."
+    "sections": {
+      "calculator": {
+        "title": "Instant Cost Projection",
+        "subtitle": "No more guesswork. Our smart calculator helps you project costs, from initial capital to menu pricing (HPP), in minutes.",
+        "cta_text": "Calculate Now"
+      },
+      "consultation": {
+        "title": "Expert Consultation",
+        "subtitle": "Connect with industry veterans. Get personalized advice on your business plan, operations, or marketing strategy, online or offline.",
+        "cta_text": "Book a Session"
+      },
+      "learn-space": {
+        "title": "Foodpreneur Learn Space",
+        "subtitle": "Access exclusive modules, articles, and workshop schedules designed to sharpen your business acumen and culinary skills.",
+        "cta_text": "Explore Modules"
+      },
+      "collaboration": {
+        "title": "Partnership & Collaboration",
+        "subtitle": "Grow faster together. We connect you with suppliers, distributors, and fellow foodpreneurs for powerful collaborations.",
+        "cta_text": "Become a Partner"
+      },
+      "user-collaboration": {
+        "title": "Community Forum",
+        "subtitle": "You're not alone. Join our exclusive forum to share ideas, overcome challenges, and find co-founders among fellow users.",
+        "cta_text": "Join the Community"
+      }
+    }
   },
   "AppCTA": {
     "section_title": "Take Your Business Plan Anywhere",
@@ -177,7 +198,7 @@
     "button": "Join the Community"
   },
   "Blog": {
-    "title": "Blog Startup Sunny",
+    "title": "Blog Startup <primary>Sunny</primary>",
     "subtitle": "Fresh Insights, practical tips, and inspiring stories to help your business journey.",
     "search_placeholder": "Search articles...",
     "related_articles_title": "Related Articles",

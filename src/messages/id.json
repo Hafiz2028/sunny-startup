@@ -1,7 +1,7 @@
 {
   "Metadata": {
-    "title": "Sunny Startup | Rencanakan Bisnis Kulinermu",
-    "description": "Ubah ide bisnis makanan Anda menjadi rencana matang dengan kalkulator pintar kami."
+    "title": "Rencana Bisnis Kuliner Lengkap & Cepat | Sunny Startup",
+    "description": "Sunny Startup membantu Anda mengubah ide jadi bisnis kuliner sukses. Buat rencana bisnis, hitung modal, dan prediksi keuntungan dengan alat pintar kami. Mulai gratis!"
   },
   "NotFound": {
     "title": "Oops! Halaman Hilang.",
@@ -16,7 +16,7 @@
     "getStarted": "Mulai"
   },
   "Hero": {
-    "title": "Mimpi Bisnis Kulinermu Dimulai Dari Sini.",
+    "title": "<primary>Mimpi Bisnis</primary> Kulinermu Dimulai Dari Sini.",
     "subtitle": "Ubah ide random jadi rencana cuan yang matang. Kalkulator bisnis pintar kami bantu hitung semuanya, sat-set anti boncos.",
     "cta_main": "Ayo Hitung Bisnismu",
     "cta_secondary": "Pelajari Caranya",
@@ -82,15 +82,36 @@
     "service_collaboration": "Kolaborasi"
   },
   "ServicesPage": {
-    "title": "Layanan Kami",
-    "subtitle": "Semua alat yang Anda butuhkan untuk merencanakan, menjalankan, dan mengembangkan bisnis kuliner Anda.",
-    "tab_calculator": "Kalkulator Bisnis",
-    "tab_consultation": "Konsultasi",
-    "tab_learn_space": "Ruang Belajar",
-    "tab_collaboration": "Kolaborasi",
-    "no_service": "Layanan tidak ditemukan",
-    "select_service": "Silakan pilih salah satu layanan di atas."
-  },
+  "title": "Layanan Startup <primary>Sunny</primary>",
+  "subtitle": "Semua alat yang Anda butuhkan untuk merencanakan, menjalankan, dan mengembangkan bisnis kuliner Anda.",
+  "sections": {
+    "calculator": {
+      "title": "Proyeksi Biaya Instan",
+      "subtitle": "Tanpa tebak-tebakan. Kalkulator pintar kami membantu Anda memproyeksikan biaya, dari modal awal hingga harga pokok penjualan (HPP), dalam hitungan menit.",
+      "cta_text": "Hitung Sekarang"
+    },
+    "consultation": {
+      "title": "Konsultasi Ahli",
+      "subtitle": "Terhubung dengan veteran industri. Dapatkan saran personal untuk rencana bisnis, operasional, atau strategi pemasaran Anda, online maupun offline.",
+      "cta_text": "Pesan Sesi"
+    },
+    "learn-space": {
+      "title": "Ruang Belajar Foodpreneur",
+      "subtitle": "Akses modul eksklusif, artikel, dan jadwal workshop yang dirancang untuk mengasah ketajaman bisnis dan skill kuliner Anda.",
+      "cta_text": "Jelajahi Modul"
+    },
+    "collaboration": {
+      "title": "Kemitraan & Kolaborasi",
+      "subtitle": "Tumbuh lebih cepat bersama. Kami menghubungkan Anda dengan pemasok, distributor, dan sesama foodpreneur untuk kolaborasi yang powerful.",
+      "cta_text": "Jadi Partner"
+    },
+    "user-collaboration": {
+      "title": "Forum Komunitas",
+      "subtitle": "Anda tidak sendiri. Bergabunglah di forum eksklusif kami untuk berbagi ide, mengatasi tantangan, dan menemukan co-founder di antara sesama pengguna.",
+      "cta_text": "Gabung Komunitas"
+    }
+  }
+},
   "AppCTA": {
     "section_title": "Bawa Rencana Bisnismu Kemanapun",
     "section_subtitle": "Unduh aplikasi mobile kami untuk akses mudah ke kalkulator bisnis, tips, dan konsultasi kapan saja, di mana saja.",
@@ -177,7 +198,7 @@
     "button": "Gabung Komunitas"
   },
   "Blog": {
-    "title": "Sunny Startup Blog",
+    "title": "<primary>Sunny</primary> Startup Blog",
     "subtitle": "Insight segar, tips praktis, dan cerita inspiratif untuk membantu perjalanan bisnismu.",
     "search_placeholder": "Cari artikel berdasarkan judul...",
     "related_articles_title": "Artikel Terkait",

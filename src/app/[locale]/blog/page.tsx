@@ -25,7 +25,6 @@ export default async function BlogPage({
     <main className="w-full py-20 lg:py-24 bg-[#F7FAFC] overflow-hidden">
       <BlogFull
         posts={translatedPosts}
-        pageTitle={t("title")}
         pageSubtitle={t("subtitle")}
         searchPlaceholder={t("search_placeholder")}
         allCategoryText={t("all_category")}

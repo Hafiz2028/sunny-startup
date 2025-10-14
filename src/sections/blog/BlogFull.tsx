@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 import type { Post } from "@/lib/data";
 import { BlogList } from "./BlogList";
 
 interface BlogFullProps {
   posts: Post[];
-  pageTitle: string;
   pageSubtitle: string;
   searchPlaceholder: string;
   allCategoryText: string;
@@ -23,11 +23,11 @@ const headerVariants: Variants = {
 
 export function BlogFull({
   posts,
-  pageTitle,
   pageSubtitle,
   searchPlaceholder,
   allCategoryText,
 }: BlogFullProps) {
+  const t = useTranslations("Blog");
   return (
     <div className="container mx-auto px-6">
       <motion.div
@@ -37,7 +37,9 @@ export function BlogFull({
         className="max-w-3xl mx-auto text-center mb-12"
       >
         <h1 className="font-display text-4xl lg:text-5xl font-extrabold text-[#1A202C] mb-4">
-          {pageTitle}
+          {t.rich("title", {
+            primary: (chunks) => <span className="text-primary">{chunks}</span>,
+          })}
         </h1>
         <p className="text-lg text-gray-500">{pageSubtitle}</p>
       </motion.div>
