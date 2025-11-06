@@ -1,13 +1,23 @@
-// app/[locale]/author/[authorId]/page.tsx
-
 import { notFound } from "next/navigation";
 import { getAllArticles } from "@/lib/api";
+import type { Post } from "@/lib/data";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { BlogPostCard } from "@/sections/blog/BlogPostCard";
+import { motion } from "framer-motion";
 import { locales } from "@/navigation";
-// 1. Impor komponen klien baru
 import { AuthorPageContent } from "@/sections/author/AuthorPageContent";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.07 } },
+};
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export async function generateStaticParams() {
-  const apiResponse = await getAllArticles();
+  const apiResponse = await getAllArticles("en");
   const articles = apiResponse ? apiResponse.articles : [];
 
   const authorIds = [
@@ -27,8 +37,7 @@ export default async function AuthorDetailPage({
 }: {
   params: { authorId: string; locale: string };
 }) {
-  // 2. Logika pengambilan data tetap di sini (Server Component)
-  const apiResponse = await getAllArticles();
+  const apiResponse = await getAllArticles(locale);
   const allPosts = apiResponse ? apiResponse.articles : [];
 
   const authorPosts = allPosts.filter(
