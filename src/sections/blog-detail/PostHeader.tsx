@@ -45,7 +45,9 @@ export function PostHeader({ post }: { post: Post }) {
           className="flex items-center gap-3 group"
         >
           <Avatar className="h-10 w-10">
-            <AvatarImage src={post.avatarSrc} alt={post.author} />
+            {post.avatarSrc && (
+              <AvatarImage src={post.avatarSrc} alt={post.author} />
+            )}
             <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
           </Avatar>
           <span className="font-semibold text-gray-800 group-hover:text-primary transition-colors">
