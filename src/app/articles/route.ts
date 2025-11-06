@@ -1,5 +1,3 @@
-// app/api/articles/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import { getAllArticles } from "@/lib/api";
 

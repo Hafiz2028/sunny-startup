@@ -13,6 +13,7 @@ interface ApiArticle {
   author: { id: number; name: string };
   category: { id: number; name: string };
   image: string;
+  slug?: string;
 }
 
 export interface ApiCategory {
@@ -23,12 +24,12 @@ export interface ApiCategory {
 function mapApiArticleToPost(article: ApiArticle): Post {
   return {
     id: article.id,
-    slug: article.id.toString(),
-    authorId: article.author.id,
+    slug: article.slug || article.id.toString(),
     title: article.title,
     description: article.desc,
     content: article.content,
     author: article.author.name,
+    authorId: article.author.id,
     authorBio: null,
     avatarSrc: null,
     date: new Date(article.date_created).toLocaleDateString("en-CA"),
@@ -44,20 +45,17 @@ async function fetchApi(endpoint: string, options: RequestInit = {}) {
       "API URL or Token is not configured. Check your .env.local file."
     );
   }
-
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Bearer ${API_TOKEN}`,
     ...options.headers,
   };
-
   try {
     const res = await fetch(`${API_BASE_URL}${endpoint}`, {
       ...options,
       headers,
       next: { revalidate: 3600 },
     });
-
     if (!res.ok) {
       console.error(`API call failed: ${endpoint}`, await res.text());
       return null;
@@ -74,20 +72,39 @@ async function fetchApi(endpoint: string, options: RequestInit = {}) {
 export interface ArticlesResponse {
   categories: ApiCategory[];
   articles: Post[];
-  meta: {
-    limit: number;
-    offset: number;
-    hasNext: boolean;
-    hasPrev: boolean;
-  };
+  meta: any;
 }
 
-export async function getAllArticles(): Promise<ArticlesResponse | null> {
-  const response = await fetchApi("/api/articles");
+export async function getAllArticles(
+  locale: string,
+  page: number = 1,
+  limit: number = 6,
+  category?: string | null,
+  searchTerm?: string | null,
+  allCategoryText?: string
+): Promise<ArticlesResponse | null> {
+  const params = new URLSearchParams({
+    offset: ((page - 1) * limit).toString(),
+    limit: limit.toString(),
+  });
+
+  if (category && category !== allCategoryText) {
+    params.append("category", category);
+  }
+
+  if (searchTerm) {
+    params.append("search", searchTerm);
+  }
+
+  const response = await fetchApi(`/api/articles?${params.toString()}`);
 
   if (!response || response.status !== 1) {
     console.error("Failed to get valid response from /api/articles");
-    return null;
+    return {
+      categories: [],
+      articles: [],
+      meta: { limit: 6, offset: 0, hasNext: false, hasPrev: false },
+    };
   }
 
   const mappedArticles = response.data.articles.map(mapApiArticleToPost);
@@ -104,7 +121,7 @@ export async function getArticleById(id: string): Promise<Post | null> {
     "PERINGATAN: Menggunakan fungsi getArticleById yang tidak efisien."
   );
 
-  const allData = await getAllArticles();
+  const allData = await getAllArticles(id, 1, 100);
   if (!allData) return null;
 
   return allData.articles.find((p) => p.id.toString() === id) || null;
