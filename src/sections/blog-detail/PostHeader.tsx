@@ -41,11 +41,11 @@ export function PostHeader({ post }: { post: Post }) {
         className="flex items-center justify-center gap-4 text-sm text-gray-500"
       >
         <Link
-          href={`/author/${post.authorSlug}`}
+          href={`/blog?author=${encodeURIComponent(post.author)}`}
           className="flex items-center gap-3 group"
         >
           <Avatar className="h-10 w-10">
-            <AvatarImage src={post.authorImage} alt={post.author} />
+            <AvatarImage src={post.avatarSrc} alt={post.author} />
             <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
           </Avatar>
           <span className="font-semibold text-gray-800 group-hover:text-primary transition-colors">

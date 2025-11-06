@@ -1,79 +1,80 @@
 export type Post = {
-  slug: string;
+  id: number;
+  slug: string; // Kita akan isi dengan ID
   title: string;
   description: string;
-  author: string;
-  authorSlug: string;
-  authorImage: string;
-  authorBio: string;
+  content: string;
+  authorId: number;
+  author: string; // Hanya akan berisi nama, misal "Sunny"
+  authorBio: string | null; // Tidak ada di API
+  avatarSrc: string | null; // Tidak ada di API
   date: string;
   category: string;
-  imageUrl: string;
-  content: string;
+  image: string;
 };
 
 export const postsData = [
   {
+    id: 1,
     slug: "5-strategi-marketing-fnb",
-    authorSlug: "rina-a",
-    authorImage: "https://i.pravatar.cc/150?u=rina",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=rina",
+    image:
       "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 2,
     slug: "studi-kasus-sambal-juara",
-    authorSlug: "budi-s",
-    authorImage: "https://i.pravatar.cc/150?u=budi",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=budi",
+    image:
       "https://images.unsplash.com/photo-1600891964092-4316c288032e?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 3,
     slug: "pentingnya-food-costing",
-    authorSlug: "sarah-l",
-    authorImage: "https://i.pravatar.cc/150?u=sarah",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=sarah",
+    image:
       "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1974&auto=format&fit=crop",
   },
   {
+    id: 4,
     slug: "tren-kemasan-ramah-lingkungan",
-    authorSlug: "rina-a",
-    authorImage: "https://i.pravatar.cc/150?u=rina",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=rina",
+    image:
       "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 5,
     slug: "membangun-loyalitas-pelanggan",
-    authorSlug: "budi-s",
-    authorImage: "https://i.pravatar.cc/150?u=budi",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=budi",
+    image:
       "https://plus.unsplash.com/premium_photo-1667520101390-2e12bd9f84f6?q=80&w=1171&auto=format&fit=crop",
   },
   {
+    id: 6,
     slug: "manajemen-inventaris-efektif",
-    authorSlug: "sarah-l",
-    authorImage: "https://i.pravatar.cc/150?u=sarah",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=sarah",
+    image:
       "https://images.unsplash.com/photo-1512485800893-b08ec1ea59b1?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 7,
     slug: "riset-pasar-untuk-menu-baru",
-    authorSlug: "rina-a",
-    authorImage: "https://i.pravatar.cc/150?u=rina",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=rina",
+    image:
       "https://images.unsplash.com/photo-1516653995843-05a751634710?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 8,
     slug: "analisis-kompetitor-restoran",
-    authorSlug: "budi-s",
-    authorImage: "https://i.pravatar.cc/150?u=budi",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=budi",
+    image:
       "https://images.unsplash.com/photo-1579684385127-6c8a8c3d0b2f?q=80&w=2070&auto=format&fit=crop",
   },
   {
+    id: 9,
     slug: "pajak-umkm-fnb",
-    authorSlug: "sarah-l",
-    authorImage: "https://i.pravatar.cc/150?u=sarah",
-    imageUrl:
+    avatarSrc: "https://i.pravatar.cc/150?u=sarah",
+    image:
       "https://images.unsplash.com/photo-1554224155-1696413565d3?q=80&w=2070&auto=format&fit=crop",
   },
 ];

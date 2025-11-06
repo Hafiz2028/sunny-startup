@@ -19,6 +19,10 @@ export function Navbar() {
     if (href === "/") {
       return activePath === href;
     }
+
+    if (href === "/blog") {
+      return activePath.startsWith("/blog") || activePath.startsWith("/author");
+    }
     return activePath.startsWith(href);
   };
   const linkVariants = {

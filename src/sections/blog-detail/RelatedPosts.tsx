@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import type { Post } from "@/lib/data";
-import { postsData } from "@/lib/data";
 import { BlogPostCard } from "../blog/BlogPostCard";
 
 export function RelatedPosts({

@@ -15,131 +15,115 @@ import {
 } from "@/components/ui/pagination";
 import type { Post } from "@/lib/data";
 import { BlogPostCard } from "./BlogPostCard";
+import type { PaginatedPostsResponse } from "@/lib/api";
 
 const POSTS_PER_PAGE = 6;
 
-const postCardVariants: Variants = {
-  initial: { opacity: 0, x: 50 },
-  animate: {
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.4, ease: [0.25, 1, 0.5, 1] },
-  },
-  exit: {
-    opacity: 0,
-    x: -50,
-    transition: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
+    transition: {
+      staggerChildren: 0.07,
+    },
   },
 };
 
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const uiElementVariants: Variants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const categoryContainerVariants: Variants = {
+  visible: { transition: { staggerChildren: 0.05 } },
+};
 interface BlogListProps {
   posts: Post[];
+  meta: PaginatedPostsResponse["meta"];
+  categories: string[];
+  activeCategory: string;
+  searchTerm: string;
+  onCategoryChange: (category: string) => void;
+  onSearchChange: (term: string) => void;
+  onPageChange: (page: number) => void;
   searchPlaceholder: string;
   allCategoryText: string;
 }
 
 export function BlogList({
   posts,
+  meta,
+  categories,
+  activeCategory,
+  searchTerm,
+  onCategoryChange,
+  onSearchChange,
+  onPageChange,
   searchPlaceholder,
-  allCategoryText,
 }: BlogListProps) {
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [activeCategory, setActiveCategory] = React.useState(allCategoryText);
-  const [currentPage, setCurrentPage] = React.useState(1);
-
-  const categories = [
-    allCategoryText,
-    ...Array.from(new Set(posts.map((p) => p.category))),
-  ];
-
-  const filteredPosts = posts
-    .filter(
-      (post) =>
-        activeCategory === allCategoryText || post.category === activeCategory
-    )
-    .filter(
-      (post) =>
-        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        post.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
-  const paginatedPosts = filteredPosts.slice(
-    (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
-  );
-
-  const UIElements = React.useMemo(
-    () => (
-      <>
-        <div className="max-w-xl mx-auto mb-8 relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-          <Input
-            type="search"
-            placeholder={searchPlaceholder}
-            className="pl-12 h-12 rounded-full border-gray-200 focus:ring-primary focus:border-primary"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
-        </div>
-
-        <div className="flex justify-center flex-wrap gap-3 mb-16">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={activeCategory === category ? "default" : "outline"}
-              className={`rounded-full px-5 py-2 transition-all duration-200 ${
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-white text-gray-600 border-gray-200 hover:bg-gray-50"
-              }`}
-              onClick={() => {
-                setActiveCategory(category);
-                setCurrentPage(1);
-              }}
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
-      </>
-    ),
-    [searchTerm, activeCategory, categories, searchPlaceholder]
-  );
+  const totalPages = Math.ceil(meta.total / meta.limit);
+  const currentPage = meta.offset / meta.limit + 1;
 
   return (
     <>
-      {UIElements}
-      <div className="max-w-5xl mx-auto">
-        <motion.div
-          layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[450px]"
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentPage + activeCategory + searchTerm}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              variants={{
-                initial: { opacity: 1 },
-                animate: { opacity: 1, transition: { staggerChildren: 0.05 } },
-                exit: { opacity: 1 },
-              }}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 col-span-3"
+      <motion.div
+        className="max-w-xl mx-auto mb-8 relative"
+        initial="hidden"
+        animate="visible"
+        variants={uiElementVariants}
+      >
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+        <Input
+          type="search"
+          placeholder={searchPlaceholder}
+          className="pl-12 h-12 rounded-full border-gray-200 focus:ring-primary focus:border-primary"
+          value={searchTerm}
+          onChange={(e) => onSearchChange(e.target.value)}
+        />
+      </motion.div>
+
+      <motion.div
+        className="flex justify-center flex-wrap gap-3 mb-16"
+        variants={categoryContainerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {categories.map((category) => (
+          <motion.div key={category} variants={uiElementVariants}>
+            <Button
+              variant={activeCategory === category ? "default" : "outline"}
+              className="rounded-full"
+              onClick={() => onCategoryChange(category)}
             >
-              {paginatedPosts.map((post) => (
-                <motion.div key={post.slug} layout variants={postCardVariants}>
-                  <BlogPostCard post={post} />
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
+              {category}
+            </Button>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <div className="max-w-5xl mx-auto">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentPage + activeCategory + searchTerm}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[450px]"
+          >
+            {posts.map((post) => (
+              <motion.div key={post.slug} variants={itemVariants}>
+                <BlogPostCard post={post} />
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
+
       {totalPages > 1 && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -154,7 +138,7 @@ export function BlogList({
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    setCurrentPage((p) => Math.max(1, p - 1));
+                    onPageChange(Math.max(1, currentPage - 1));
                   }}
                 />
               </PaginationItem>
@@ -165,7 +149,7 @@ export function BlogList({
                     isActive={currentPage === i + 1}
                     onClick={(e) => {
                       e.preventDefault();
-                      setCurrentPage(i + 1);
+                      onPageChange(i + 1);
                     }}
                   >
                     {i + 1}
@@ -177,7 +161,7 @@ export function BlogList({
                   href="#"
                   onClick={(e) => {
                     e.preventDefault();
-                    setCurrentPage((p) => Math.min(totalPages, p + 1));
+                    onPageChange(Math.min(totalPages, currentPage + 1));
                   }}
                 />
               </PaginationItem>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import type { Post } from "@/lib/data";
 import { PostHeader } from "./PostHeader";
 import { AuthorProfile } from "./AuthorProfile";
@@ -20,18 +21,22 @@ export function BlogDetailContent({ post, allPosts }: BlogDetailContentProps) {
           <PostHeader post={post} />
         </div>
 
-        {post.imageUrl && (
+        {post.image && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="px-6 sm:px-8 md:px-10"
           >
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full rounded-2xl aspect-video object-cover"
-            />
+            <div className="relative w-full rounded-2xl aspect-video object-cover overflow-hidden">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 896px"
+              />
+            </div>
           </motion.div>
         )}
 
