@@ -18,7 +18,9 @@ export function AuthorProfile({ post }: { post: Post }) {
       className="bg-white border border-gray-200 p-8 rounded-2xl flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left"
     >
       <Avatar className="h-24 w-24">
-        <AvatarImage src={post.avatarSrc} alt={post.author} />
+        {post.avatarSrc && (
+          <AvatarImage src={post.avatarSrc} alt={post.author} />
+        )}
         <AvatarFallback>{post.author.charAt(0)}</AvatarFallback>
       </Avatar>
       <div>
@@ -30,7 +32,7 @@ export function AuthorProfile({ post }: { post: Post }) {
         </h3>
         <p className="text-gray-500">{post.authorBio}</p>
         <Link
-          href={`/author/${(post.authorId)}`}
+          href={`/author/${post.authorId}`}
           className="text-sm font-semibold text-primary hover:underline mt-2 inline-block"
         >
           {t("view_all_articles_by", { authorName: post.author })}
