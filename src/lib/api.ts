@@ -130,16 +130,16 @@ export async function getArticleById(id: string): Promise<Post | null> {
 
 //dummy
 
-// export interface PaginatedPostsResponse {
-//   meta: {
-//     total: number;
-//     limit: number;
-//     offset: number;
-//     hasNext: boolean;
-//     hasPrev: boolean;
-//   };
-//   data: Post[];
-// }
+export interface PaginatedPostsResponse {
+  meta: {
+    total: number;
+    limit: number;
+    offset: number;
+    hasNext: boolean;
+    hasPrev: boolean;
+  };
+  data: Post[];
+}
 
 // import { getTranslations } from "next-intl/server";
 
