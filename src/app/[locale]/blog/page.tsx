@@ -8,7 +8,7 @@ export default async function BlogPage({
   params: { locale: string };
 }) {
   const t = await getTranslations({ locale, namespace: "Blog" });
-  const apiResponse = await getAllArticles();
+  const apiResponse = await getAllArticles("en");
 
   const allPosts = apiResponse ? apiResponse.articles : [];
   const allCategories = apiResponse
