@@ -121,7 +121,8 @@ export async function getArticleById(id: string): Promise<Post | null> {
     "PERINGATAN: Menggunakan fungsi getArticleById yang tidak efisien."
   );
 
-  const allData = await getAllArticles(id, 1, 100);
+  const allData = await getAllArticles("en", 1, 100);
+
   if (!allData) return null;
 
   return allData.articles.find((p) => p.id.toString() === id) || null;
